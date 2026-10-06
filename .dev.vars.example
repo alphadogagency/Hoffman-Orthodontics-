@@ -1,0 +1,3 @@
+# Server-only bindings for Cloudflare Pages local development; copy to .dev.vars.
+GOOGLE_PLACES_API_KEY=
+GOOGLE_PLACE_ID=

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import OfficeHours from "../components/OfficeHours.astro";
+import GoogleReviews from "../components/GoogleReviews.astro";
 ---
 <BaseLayout
   title="Hoffman Family Orthodontics | Personal Care in East Memphis"
@@ -12,7 +14,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <p class="eyebrow"><span class="short-line" aria-hidden="true"></span>Hoffman Family Orthodontics</p>
           <h1 id="hero-title"><span>Personal</span><span>orthodontic care</span><span>in <em>East Memphis.</em></span></h1>
           <p class="hero-description">Braces and clear aligners for children, teens, and adults, with Dr. Rachel Hoffman. Expert guidance, time for your questions, and care that feels personal.</p>
-          <div class="hero-actions"><a class="button" href="#contact">Plan your consultation</a><a class="text-link" href="#meet-dr-rachel">Meet Dr. Rachel</a></div>
+          <div class="hero-actions"><a class="button" href="/contact/#form">Plan your consultation</a><a class="text-link" href="#meet-dr-rachel">Meet Dr. Rachel</a></div>
+          <a class="hero-rating" href="https://maps.app.goo.gl/JrZmSSodFu2KYgvYA" target="_blank" rel="noopener"><span data-hero-rating>Read our patient reviews</span> <span class="maps-text" translate="no">Google Maps</span></a>
           <div class="hero-note"><span class="check-circle" aria-hidden="true">✓</span><span>Complimentary consultations.<br><strong>A comfortable place to start.</strong></span></div>
         </div>
         <div class="hero-visual">
@@ -38,6 +41,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </div>
     </section>
+    <section class="section why-section" aria-labelledby="why-title"><div class="container editorial-grid"><div><p class="section-kicker">Why choose Hoffman</p><h2 id="why-title">Expertise you can<br>ask questions about.</h2></div><div class="reading-copy"><p class="intro-lead">Dr. Rachel is a board-certified orthodontist. Here’s what that means for your care.</p><p>Board certification is a voluntary step beyond orthodontic specialty training. The American Board of Orthodontics assesses knowledge and clinical judgment through examinations and ongoing certification requirements.</p><p>For you, that means a doctor who has chosen an additional professional standard, and a place to talk through why a treatment is recommended. Your first consultation is complimentary, with time to understand your options.</p><div class="inline-links"><a class="text-link" href="/about/">Meet your orthodontist</a><a class="text-link" href="https://exam.americanboardortho.com/patients/" target="_blank" rel="noopener">About board certification</a></div></div></div></section>
+    <GoogleReviews />
     <section class="treatment-section section" id="treatments" aria-labelledby="treatment-title">
       <div class="container">
         <div class="section-heading"><div><h2 id="treatment-title">Braces, aligners<br>and retainers.</h2></div><p>We’ll help you understand your options and choose a treatment that fits your needs and daily routine.</p></div>
@@ -46,14 +51,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div class="treatment-list">
             <details class="treatment-item" name="treatments" open><summary><span class="item-number">01</span><span>Braces</span><span class="plus" aria-hidden="true"></span></summary><div class="treatment-content"><p>Small details. Big possibilities. Metal and tooth-colored ceramic braces offer precise, personalized treatment for smiles of all ages.</p><a class="text-link" href="/treatments/#braces">Explore braces</a></div></details>
             <details class="treatment-item" name="treatments"><summary><span class="item-number">02</span><span>Clear aligners</span><span class="plus" aria-hidden="true"></span></summary><div class="treatment-content"><p>A discreet option that fits into your day. We offer Invisalign® and Angel Aligners, with a custom treatment plan guided by Dr. Rachel.</p><a class="text-link" href="/treatments/#clear-aligners">Explore clear aligners</a></div></details>
-            <details class="treatment-item" name="treatments"><summary><span class="item-number">03</span><span>Retainers &amp; beyond</span><span class="plus" aria-hidden="true"></span></summary><div class="treatment-content"><p>Keep your new smile feeling like you. Custom retainers and follow-up visits help maintain your results long after active treatment.</p><a class="text-link" href="/treatments/#retainers">Learn about smile maintenance</a></div></details>
+            <details class="treatment-item" name="treatments"><summary><span class="item-number">03</span><span>Retainers &amp; beyond</span><span class="plus" aria-hidden="true"></span></summary><div class="treatment-content"><p>Keep your new smile feeling like you. Custom retainers and follow-up visits help maintain your results long after active treatment.</p><a class="text-link" href="/treatments/retainers/">Learn about smile maintenance</a></div></details>
           </div>
         </div>
       </div>
     </section>
     <section class="first-visit-section section" id="first-visit" aria-labelledby="visit-title">
       <div class="container visit-grid">
-        <div class="visit-intro"><p class="eyebrow">Your first visit</p><h2 id="visit-title">Let’s start with<br>a hello.</h2><p>Your first visit is a chance to get to know us, talk about your goals, and discover what’s possible. We’ll take it from there, together.</p><a class="button" href="#contact">Plan your first visit</a><span class="visit-note">Your consultation is complimentary.</span></div>
+        <div class="visit-intro"><p class="eyebrow">Your first visit</p><h2 id="visit-title">Let’s start with<br>a hello.</h2><p>Your first visit is a chance to get to know us, talk about your goals, and discover what’s possible. We’ll take it from there, together.</p><a class="button" href="/contact/#form">Plan your first visit</a><span class="visit-note">Your consultation is complimentary.</span></div>
         <div class="visit-steps">
           <div class="visit-step"><span>01</span><div><h3>Come as you are</h3><p>We’ll send your patient forms ahead of time so you can settle in and feel right at home.</p></div></div>
           <div class="visit-step"><span>02</span><div><h3>Get the full picture</h3><p>Photos, digital scans, X-rays, and an exam help Dr. Rachel understand your unique smile.</p></div></div>
@@ -63,13 +68,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </section>
     <section class="questions-section section" aria-labelledby="questions-title">
       <div class="container questions-grid"><div><h2 id="questions-title">Questions before<br>your first visit?</h2><a class="text-link" href="/faq/">More frequently asked questions</a></div><div class="faq-list">
-        <details class="faq-item"><summary>Do I need a referral?<span class="plus" aria-hidden="true"></span></summary><p>No referral needed. You’re welcome to contact our team directly to schedule a complimentary consultation with Dr. Hoffman.</p></details>
+        <details class="faq-item"><summary>Do I need a referral?<span class="plus" aria-hidden="true"></span></summary><p>No referral needed. You’re welcome to contact our team directly to schedule a complimentary consultation with Dr. Rachel.</p></details>
         <details class="faq-item"><summary>Is orthodontic care just for kids?<span class="plus" aria-hidden="true"></span></summary><p>Not at all. We offer braces and clear aligners for children, teenagers, and adults. Your consultation is a chance to explore the right options for your smile.</p></details>
         <details class="faq-item"><summary>What about payments and insurance?<span class="plus" aria-hidden="true"></span></summary><p>We accept most insurance providers and offer flexible payment plans. Our team will help you understand your benefits and create a plan that fits your budget.</p></details>
       </div></div>
     </section>
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div class="container contact-grid"><div class="contact-copy"><p class="eyebrow">Right here in East Memphis</p><h2 id="contact-title">Let’s plan your<br>first visit.</h2><p>Call our East Memphis office or request a complimentary consultation with Dr. Hoffman.</p><div class="contact-actions"><a class="button button-light" href="tel:+19016250202">Call 901.625.0202</a><a class="text-link light-link" href="/contact/#form">Request a consultation</a></div></div><div class="location-card"><span class="location-label">Come say hello</span><h3>Hoffman Family<br>Orthodontics</h3><address>5159 Wheelis Drive<br>Memphis, TN 38117</address><a class="text-link" href="https://maps.app.goo.gl/JrZmSSodFu2KYgvYA" target="_blank" rel="noopener">Get directions</a><span class="location-rule"></span><a class="location-email" href="mailto:info@hoffmanfamilyorthodontics.com">Email our team</a></div></div>
+      <div class="container contact-grid"><div class="contact-copy"><p class="eyebrow">Right here in East Memphis</p><h2 id="contact-title">Let’s plan your<br>first visit.</h2><p>Call our East Memphis office or request a complimentary consultation with Dr. Rachel.</p><div class="contact-actions"><a class="button button-light" href="tel:+19016250202">Call 901.625.0202</a><a class="text-link light-link" href="/contact/#form">Request a consultation</a></div></div><div class="location-card"><span class="location-label">Come say hello</span><h3>Hoffman Family<br>Orthodontics</h3><address>5159 Wheelis Drive<br>Memphis, TN 38117</address><a class="text-link" href="https://maps.app.goo.gl/JrZmSSodFu2KYgvYA" target="_blank" rel="noopener">Get directions</a><span class="location-rule"></span><OfficeHours compact /><a class="location-email" href="mailto:info@hoffmanfamilyorthodontics.com">Email our team</a></div></div>
     </section>
   </main>
 </BaseLayout>

@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { areas } from '../../data/areas';
+---
+<BaseLayout title="Our Memphis Community | Hoffman Family Orthodontics" description="Visit our East Memphis orthodontic office from Germantown, Downtown, Midtown, Collierville, Bartlett, or Cordova. Plan your trip to 5159 Wheelis Drive.">
+<main id="main" class="interior-page"><section class="detail-intro"><div class="container"><p class="eyebrow">Our Memphis community</p><h1>One office.<br>A warm welcome.</h1><p class="intro-lead">Dr. Rachel Hoffman welcomes families from across Memphis and the surrounding communities. All appointments take place at our East Memphis office, 5159 Wheelis Drive.</p></div></section><section class="section"><div class="container area-directory">{areas.map((area, index) => <a href={`/areas/${area.slug}/`}><span class="directory-number">{String(index + 1).padStart(2, '0')}</span><div><h2>{area.name}</h2><p>{area.intro}</p></div><span aria-hidden="true">↗</span></a>)}</div></section></main>
+</BaseLayout>

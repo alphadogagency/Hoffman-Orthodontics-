@@ -1,9 +1,10 @@
 {
-  "scope": "Homepage and core website pages: About, New Patients, Treatments, FAQ, Contact, Accessibility, Privacy Policy.",
+  "scope": "Homepage, core pages, eight treatment guides, seven community guides and directory, financing, and website terms.",
   "source_folder": "https://drive.google.com/drive/folders/1L4mZjVnyRm7yPxUJMBfLP0wIr_n547t6",
   "content_sources": [
     "Supplied dist.zip: index.html, about/index.html, treatments/index.html, new-patients/index.html, faq/index.html, contact/index.html",
-    "Supplied dist.zip: accessibility/index.html, privacy-policy/index.html (existing policy wording, original policy date retained)."
+    "Supplied dist.zip: accessibility/index.html, privacy-policy/index.html (existing policy wording, original policy date retained).",
+    "October 6, 2026 punch list; live practice website and Google Maps listing; source details recorded in docs/punch-list-status.md."
   ],
   "assets": {
     "hoffman-logo.svg": "Exact inline Hoffman SVG extracted from supplied homepage, verified against current live site. home/logo.png in assets.zip is a Calistoga placeholder and was excluded.",
@@ -19,11 +20,14 @@
     "Marketing headlines and summaries are new draft copy based on supplied practice content.",
     "Doctor credentials, education, office contact details, treatment offerings and FAQ answers are grounded in the supplied export.",
     "Generic template staff, office and before-and-after images were excluded; illustrative photos are not identified as Hoffman staff, premises or patient results.",
-    "All core page links now stay within the rebuilt site. External links are limited to maps and existing social accounts.",
     "Jotform is intentionally deferred at user request. src/components/ConsultationRequest.astro contains the working phone/email fallback and insertion point; preserve contact/#form.",
     "No analytics, new booking service, or patient data collection has been added.",
     "Accessibility and privacy wording is carried from the supplied pages, not a new compliance certification. Reconcile the existing privacy wording with the final Jotform configuration before the public launch.",
-    "Empty Blog and Invisalign routes are not recreated. Clear aligner content is on Treatments.",
-    "Private preview remains noindex; live-domain launch is outside this round."
+    "Private preview remains noindex; live-domain launch is outside this round.",
+    "Live Maps hours and exact coordinates verified October 6. Fax agrees with the old export and live Contact page but has not been reconfirmed by the practice.",
+    "Google reviews API and slider are implemented but disabled pending practice-specific runtime configuration; no static reviews or rating are embedded.",
+    "New treatment, cost, and local copy is draft content for practice approval. Pricing and financing numbers are deliberately omitted because not supplied.",
+    "Valid Dentist/LocalBusiness, Person, and FAQPage structured data added; no fabricated ratings or branches.",
+    "Privacy date updated only for the added Google Maps/reviews disclosure; final Jotform and practice policy review still pending."
   ]
 }

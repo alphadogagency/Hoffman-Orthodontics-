@@ -1,0 +1,23 @@
+.reviews-section { background: white; }
+.reviews-section .section-heading > div:last-child { max-width: 420px; }
+.reviews-fallback { padding-block: 22px; border-block: 1px solid var(--line); color: var(--muted); margin-bottom: 0; }
+.reviews-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 0 22px; }
+.reviews-track:focus-visible { outline: 2px solid var(--blue-dark); outline-offset: 5px; }
+.review-card { flex: 0 0 calc(50% - 12px); min-width: 0; scroll-snap-align: start; border-top: 1px solid var(--line); padding: 28px 24px 0 0; }
+.review-stars { color: #926b13; letter-spacing: 3px; font-size: 1rem; margin-bottom: 20px; }
+.review-card blockquote { margin: 0 0 20px; }
+.review-card blockquote p { font-size: 1.125rem; line-height: 1.7; overflow-wrap: anywhere; white-space: pre-line; }
+.review-collapsed blockquote p { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.review-expand { background: none; border: 0; border-bottom: 1px solid var(--line); color: var(--navy); cursor: pointer; padding: 4px 0; margin-bottom: 20px; }
+.review-person { display: flex; align-items: center; gap: 12px; font-size: .875rem; }
+.review-person img { width: 44px; height: 44px; border-radius: 50%; }
+.review-person time { display: block; color: var(--muted); font-size: .8125rem; }
+.review-source { display: inline-block; margin-top: 18px; font-size: .8125rem; text-decoration: underline; text-underline-offset: 4px; }
+.reviews-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; padding-top: 24px; border-top: 1px solid var(--line); }
+.review-selection { max-width: 580px; font-size: .75rem; color: var(--muted); margin: 8px 0 0; }
+.reviews-controls { display: flex; gap: 10px; }
+.reviews-controls button { width: 44px; height: 44px; background: white; color: var(--navy); border: 1px solid var(--line); border-radius: 4px; cursor: pointer; font-size: 1.25rem; }
+.reviews-controls button:disabled { opacity: .4; cursor: default; }
+@media (max-width:600px) { .review-card { flex-basis: 100%; padding-right: 8px; } .reviews-bottom { flex-wrap: wrap; gap: 20px; } }
+
+.maps-logo { width: auto; height: 18px; max-width: none; margin: 10px 10px 5px; }

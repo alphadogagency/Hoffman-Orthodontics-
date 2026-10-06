@@ -1,65 +1,72 @@
 # Hoffman Family Orthodontics
 
-Astro practice website with static output for Cloudflare. Includes Home, About, New Patients, Treatments, FAQ, Contact, Accessibility, Privacy Policy, and a custom 404. No server adapter is required.
+Astro website with static pages and one Cloudflare Pages Function for live Google reviews. The existing staging project is `hoffman-orthodontics`, connected to this repository’s `main` branch:
 
-## Local development
+https://hoffman-orthodontics.pages.dev/
 
-Use Node 22.12 or newer; `.node-version` pins the validated Node version.
+## Develop and verify
+
+Use Node 22.12 or newer (`.node-version` pins the validated version).
 
 ```sh
 npm ci
 npm run dev
-```
-
-```sh
 npm run check
+npm test
 npm run build
-npm run preview
+npm run pages:validate
+npm run pages:preview
 ```
 
-`dist/` is generated output. Edit `src/` and `public/`, not `dist/`.
+Astro dev previews static pages. `pages:preview` serves the built `dist/` through the local Cloudflare runtime at `http://127.0.0.1:8788`, including Functions and redirects. For local live reviews, copy `.dev.vars.example` to ignored `.dev.vars` and provide this practice’s runtime configuration. Do not put secrets in public environment variables.
 
-- `src/pages/index.astro`: homepage sections
-- `src/layouts/BaseLayout.astro`: document metadata and shared layout
-- `src/components/`: shared header and footer
-- `src/styles/global.css`: existing responsive design
-- `src/scripts/navigation.ts`: mobile menu
-- `public/assets/`: original local images, logo, and fonts
-- `content-sources.json`: provenance and content review notes
+Edit `src/` and `public/`, not generated `dist/`.
+
+- `src/data/practice.ts`: contact information, hours, map, and business/doctor schema
+- `src/data/treatments.ts`: eight individual treatment guides
+- `src/data/areas.ts`: seven community pages, all directing to the single East Memphis office
+- `src/data/faqs.ts`: visible FAQ content and the source for FAQPage schema
+- `src/components/ConsultationRequest.astro`: deferred Jotform insertion point
+- `functions/api/google-reviews.ts` and `worker/google-reviews.ts`: Pages adapter and private review handler
+- `public/_redirects`: 301 rules for known legacy URLs
+- `docs/punch-list-status.md`: source evidence, completed work, remaining approvals
 
 ## Cloudflare Pages
 
-Connect this repository to Pages using these build settings:
-
 | Setting | Value |
 | --- | --- |
+| Project | `hoffman-orthodontics` |
 | Build command | `npm run build` |
 | Output directory | `dist` |
-| Root directory | Repository root (or `homepage` if the enclosing workspace is committed as one repository) |
+| Root directory | Repository root |
 | Node version | `22.22.2` |
 
-No Cloudflare adapter or Pages Functions are required. The generated `dist` folder can also be uploaded directly to Pages. A Pages account/project has not been provisioned by this migration.
+`wrangler.jsonc` now targets the actual Pages project. `cf:preview` and `cf:validate` are aliases for the Pages commands. `cf:deploy` is an explicit publish command and requires authentication to the intended Cloudflare account. Normal updates use the existing Git integration.
 
-## Cloudflare Workers static hosting
+The root `functions/` directory must be included in deployment. A static dashboard upload or the old private Sites preview will not run the reviews Function. `_routes.json` limits function invocation to `/api/google-reviews`; static pages and legacy redirects remain on the asset path.
 
-`wrangler.jsonc` configures the same static build for Workers. The local project name can be changed before the first deployment.
+## Google reviews: activation pending
 
-```sh
-npm run build
-npm run cf:validate
-npm run cf:preview
-```
+The review slider and hero rating use the Places API (New). They are not connected yet. The staging page currently offers the real Google profile link; it displays no invented reviews or hardcoded rating.
 
-When ready to create or update the Cloudflare deployment, authenticate Wrangler to the intended account and run `npm run cf:deploy`. This command publishes; the migration only validates the configuration locally.
+To activate:
+
+1. Select the intended agency Google Cloud project with billing and Places API (New). Establish an approved request quota before activation; requests can be billable, and budget alerts do not cap spending.
+2. Obtain the Place ID for **Hoffman Family Orthodontics, 5159 Wheelis Drive, Memphis, TN 38117**. Use the verified [Google listing](https://maps.app.goo.gl/JrZmSSodFu2KYgvYA) to disambiguate similarly named practices.
+3. Restrict the server API key to Places API (New). Bind secret `GOOGLE_PLACES_API_KEY` and server variable `GOOGLE_PLACE_ID` to the appropriate Pages deployment environment. Keep the key out of source and browser bundles.
+4. Set build variable `PUBLIC_ENABLE_GOOGLE_REVIEWS=true` and redeploy.
+5. Verify `/api/google-reviews` returns JSON with this practice’s real reviews, then verify desktop/mobile cards and the hero rating.
+
+The endpoint requests only reviews, provider attribution, aggregate rating and review count. It reads a fixed server-configured business, rejects cross-site browser fetches, bounds upstream time to six seconds, does not follow redirects with credentials, and sends no-store headers. Browser fetching runs once when the hero rating enters view. Cross-site checks are not a substitute for provider quota or host rate limits.
+
+Five-star written reviews are filtered from Google’s selection of at most five and sorted newest first within that selection. Review words, authors, profile links/photos, dates, individual source links, and provider attribution are preserved. Official Google Maps attribution is included. No review content is stored in a database or bundled into the static build.
 
 ## Preview and launch
 
-The existing private Sites preview continues to use the generated `dist/` folder via `.openai/hosting.json`.
+Keep `PUBLIC_ALLOW_INDEXING=false` on staging. Page-level `noindex, nofollow` remains in place; robots permits crawling so search engines can read that instruction. Staging has an empty sitemap.
 
-Review builds default to `noindex, nofollow`. At the approved live launch, set the **build-time** environment variable `PUBLIC_ALLOW_INDEXING=true` and rebuild. The production canonical origin is configured in `astro.config.mjs`.
+At the separately approved custom-domain launch, set `PUBLIC_ALLOW_INDEXING=true` and rebuild. This adds production canonicals and a sitemap of the 26 content URLs. Validate the custom domain, both host variants, redirects, and indexing headers before submission to Search Console. Keep Pages preview hosts excluded from indexing or redirect them appropriately after launch.
 
-All core navigation and detail links now use the rebuilt pages. The Jotform embed is intentionally deferred at the client’s request. Add the supplied embed to `src/components/ConsultationRequest.astro`, preserving `/contact/#form`. Until then, the consultation section uses working phone and email links; it does not collect or submit patient data.
+Add the supplied Jotform embed to `src/components/ConsultationRequest.astro`, preserving `/contact/#form`. Until then the section has working phone/email links and does not submit patient data. Verify the submission recipient, confirmation behavior, mobile layout, and privacy wording when the embed arrives.
 
-The existing privacy policy is retained from the source export with its original date. Check its wording against the final Jotform configuration before public launch. Medical and practice content provenance is recorded in `content-sources.json`.
-
-Official references: [Astro Cloudflare deployment](https://docs.astro.build/en/guides/deploy/cloudflare/) and [Cloudflare Pages Astro builds](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/).
+The original privacy policy is retained with a limited addition covering the new map/review features. Its practice-wide claims and final form behavior still need practice review before launch. New educational and community copy is draft marketing content for approval, not a claim of clinical review.

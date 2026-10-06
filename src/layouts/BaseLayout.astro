@@ -3,14 +3,19 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import '../styles/interior.css';
+import '../styles/expansion.css';
+import { practiceSchema } from '../data/practice';
 
 interface Props {
   title: string;
   description: string;
+  schema?: Record<string, unknown>[];
+  noIndex?: boolean;
 }
 
-const { title, description } = Astro.props;
-const allowIndexing = import.meta.env.PUBLIC_ALLOW_INDEXING === 'true';
+const { title, description, schema = [], noIndex = false } = Astro.props;
+const structuredData = JSON.stringify({ "@context": "https://schema.org", "@graph": [practiceSchema, ...schema] }).replace(/</g, "\\u003c");
+const allowIndexing = !noIndex && import.meta.env.PUBLIC_ALLOW_INDEXING === 'true';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -23,6 +28,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#163a53" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script type="application/ld+json" set:html={structuredData} />
     {allowIndexing && <link rel="canonical" href={canonicalUrl} />}
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="stylesheet" href="/assets/fonts.css" />
@@ -32,5 +38,6 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <Header />
     <slot />
     <Footer />
+    <nav class="mobile-contact-bar" aria-label="Quick contact"><a href="tel:+19016250202">Call 901.625.0202</a><a href="/contact/#form">Plan a consultation</a></nav>
   </body>
 </html>

@@ -1,0 +1,9 @@
+---
+import { practice } from '../data/practice';
+const { compact = false } = Astro.props;
+---
+<div class:list={['office-hours', { compact }]}>
+  <p class="hours-label">Office hours</p>
+  <dl>{practice.hours.map(row => <div><dt>{row.days}</dt><dd>{row.hours}</dd></div>)}</dl>
+  {!compact && <p class="hours-note">All times Central. Holiday hours may vary; please call before visiting.</p>}
+</div>
