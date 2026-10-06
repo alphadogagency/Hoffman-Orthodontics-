@@ -1,0 +1,22 @@
+{
+  "scope": "Homepage design preview. Other pages will be rebuilt after design review.",
+  "source_folder": "https://drive.google.com/drive/folders/1L4mZjVnyRm7yPxUJMBfLP0wIr_n547t6",
+  "content_sources": [
+    "Supplied dist.zip: index.html, about/index.html, treatments/index.html, new-patients/index.html, faq/index.html, contact/index.html"
+  ],
+  "assets": {
+    "hoffman-logo.svg": "Exact inline Hoffman SVG extracted from supplied homepage, verified against current live site. home/logo.png in assets.zip is a Calistoga placeholder and was excluded.",
+    "dr-rachel.webp": "assets.zip / Rachel_205-Edit--750w.webp",
+    "dr-rachel-headshot.jpg": "assets.zip / rachel-headshot.jpg",
+    "treatment-options.webp": "assets.zip / risingervallsortho-treatments-hero.webp (generic illustrative treatment photo)",
+    "smile.webp": "Current live homepage ImageKit asset 189441689_Beautiful_girl_with_braces_smiles_in_dentistry.jpg; retrieved at 1200px",
+    "fonts": "DM Sans and DM Serif Display, served locally from Google Fonts downloads"
+  },
+  "review_notes": [
+    "Marketing headlines and summaries are new draft copy based on supplied practice content.",
+    "Generic template staff, office and before-and-after images were excluded; no claims that these are Hoffman staff, premises or patient results.",
+    "Consultation and detail links lead to the existing website during homepage review.",
+    "No new patient form, analytics, or appointment backend.",
+    "Private preview includes noindex; live-domain launch and remaining pages are outside this round."
+  ]
+}
