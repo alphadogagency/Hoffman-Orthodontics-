@@ -1,0 +1,5 @@
+---
+interface Props { title?: string; description?: string; }
+const { title = 'A good place to start.', description = 'Meet Dr. Rachel, ask your questions, and talk through your options at a complimentary consultation.' } = Astro.props;
+---
+<section class="consultation-cta"><div class="container consultation-cta-inner"><div><h2>{title}</h2><p>{description}</p></div><a class="button button-light" href="/contact/#form">Plan your consultation</a></div></section>

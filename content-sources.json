@@ -1,8 +1,9 @@
 {
-  "scope": "Homepage design preview. Other pages will be rebuilt after design review.",
+  "scope": "Homepage and core website pages: About, New Patients, Treatments, FAQ, Contact, Accessibility, Privacy Policy.",
   "source_folder": "https://drive.google.com/drive/folders/1L4mZjVnyRm7yPxUJMBfLP0wIr_n547t6",
   "content_sources": [
-    "Supplied dist.zip: index.html, about/index.html, treatments/index.html, new-patients/index.html, faq/index.html, contact/index.html"
+    "Supplied dist.zip: index.html, about/index.html, treatments/index.html, new-patients/index.html, faq/index.html, contact/index.html",
+    "Supplied dist.zip: accessibility/index.html, privacy-policy/index.html (existing policy wording, original policy date retained)."
   ],
   "assets": {
     "hoffman-logo.svg": "Exact inline Hoffman SVG extracted from supplied homepage, verified against current live site. home/logo.png in assets.zip is a Calistoga placeholder and was excluded.",
@@ -10,13 +11,19 @@
     "dr-rachel-headshot.jpg": "assets.zip / rachel-headshot.jpg",
     "treatment-options.webp": "assets.zip / risingervallsortho-treatments-hero.webp (generic illustrative treatment photo)",
     "smile.webp": "Current live homepage ImageKit asset 189441689_Beautiful_girl_with_braces_smiles_in_dentistry.jpg; retrieved at 1200px",
-    "fonts": "DM Sans and DM Serif Display, served locally from Google Fonts downloads"
+    "fonts": "DM Sans and DM Serif Display, served locally from Google Fonts downloads",
+    "first-visit.webp": "assets.zip / parmerlaneortho-patient-info-first-visit.webp; generic illustrative family consultation photograph, not represented as Hoffman patients or staff.",
+    "consultation.webp": "assets.zip / cueorthodontics-new-patients-hero.webp; generic illustrative dental-model consultation photograph, not represented as Dr. Hoffman."
   },
   "review_notes": [
     "Marketing headlines and summaries are new draft copy based on supplied practice content.",
-    "Generic template staff, office and before-and-after images were excluded; no claims that these are Hoffman staff, premises or patient results.",
-    "Consultation and detail links lead to the existing website during homepage review.",
-    "No new patient form, analytics, or appointment backend.",
-    "Private preview includes noindex; live-domain launch and remaining pages are outside this round."
+    "Doctor credentials, education, office contact details, treatment offerings and FAQ answers are grounded in the supplied export.",
+    "Generic template staff, office and before-and-after images were excluded; illustrative photos are not identified as Hoffman staff, premises or patient results.",
+    "All core page links now stay within the rebuilt site. External links are limited to maps and existing social accounts.",
+    "Jotform is intentionally deferred at user request. src/components/ConsultationRequest.astro contains the working phone/email fallback and insertion point; preserve contact/#form.",
+    "No analytics, new booking service, or patient data collection has been added.",
+    "Accessibility and privacy wording is carried from the supplied pages, not a new compliance certification. Reconcile the existing privacy wording with the final Jotform configuration before the public launch.",
+    "Empty Blog and Invisalign routes are not recreated. Clear aligner content is on Treatments.",
+    "Private preview remains noindex; live-domain launch is outside this round."
   ]
 }

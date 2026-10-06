@@ -1,6 +1,6 @@
 # Hoffman Family Orthodontics
 
-Astro homepage with static output for Cloudflare. The approved design, copy, fonts, imagery, and interactions are preserved. No server adapter is needed for the current homepage.
+Astro practice website with static output for Cloudflare. Includes Home, About, New Patients, Treatments, FAQ, Contact, Accessibility, Privacy Policy, and a custom 404. No server adapter is required.
 
 ## Local development
 
@@ -58,6 +58,8 @@ The existing private Sites preview continues to use the generated `dist/` folder
 
 Review builds default to `noindex, nofollow`. At the approved live launch, set the **build-time** environment variable `PUBLIC_ALLOW_INDEXING=true` and rebuild. The production canonical origin is configured in `astro.config.mjs`.
 
-This round contains only the homepage. Detail links and the consultation link still use the existing Hoffman website until the remaining pages and contact workflow are replaced.
+All core navigation and detail links now use the rebuilt pages. The Jotform embed is intentionally deferred at the client’s request. Add the supplied embed to `src/components/ConsultationRequest.astro`, preserving `/contact/#form`. Until then, the consultation section uses working phone and email links; it does not collect or submit patient data.
+
+The existing privacy policy is retained from the source export with its original date. Check its wording against the final Jotform configuration before public launch. Medical and practice content provenance is recorded in `content-sources.json`.
 
 Official references: [Astro Cloudflare deployment](https://docs.astro.build/en/guides/deploy/cloudflare/) and [Cloudflare Pages Astro builds](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/).

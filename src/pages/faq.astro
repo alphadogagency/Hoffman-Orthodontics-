@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConsultationCTA from '../components/ConsultationCTA.astro';
+import { faqGroups } from '../data/faqs';
+---
+<BaseLayout title="Orthodontic FAQs | Hoffman Family Orthodontics" description="Answers to common questions about orthodontic consultations, braces, clear aligners, insurance, appointments, and retainers at Hoffman Family Orthodontics.">
+  <main id="main" class="interior-page">
+    <section class="simple-intro" aria-labelledby="faq-title"><div class="container narrow-intro"><p class="eyebrow">Frequently asked questions</p><h1 id="faq-title">A little clarity<br>goes a <em>long way.</em></h1><p>From your first appointment to life after braces, here are answers to questions our patients ask.</p></div></section>
+    <section class="section faq-page-section" aria-label="Questions and answers"><div class="container faq-page-grid"><aside class="faq-sidebar"><nav class="faq-navigation" aria-label="Question topics">{faqGroups.map(group => <a href={`#${group.id}`}>{group.title}</a>)}</nav><div class="faq-help"><h2>Something else <br>on your mind?</h2><p>Our team is happy to help.</p><a class="text-link" href="tel:+19016250202">Call 901.625.0202</a></div></aside><div>{faqGroups.map(group => <section class="faq-group" id={group.id} aria-labelledby={`${group.id}-title`}><h2 id={`${group.id}-title`}>{group.title}</h2><div class="faq-list">{group.items.map(item => <details class="faq-item"><summary>{item.question}<span class="plus" aria-hidden="true"></span></summary><p>{item.answer}</p></details>)}</div></section>)}</div></div></section>
+    <ConsultationCTA title="Your questions are welcome." description="A complimentary consultation gives you time to meet Dr. Rachel and discuss your own smile." />
+  </main>
+</BaseLayout>
