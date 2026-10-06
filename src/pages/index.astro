@@ -1,27 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Personalized orthodontic care for children, teens, and adults in East Memphis. Meet board-certified orthodontist Dr. Rachel Hoffman and discover your smile possibilities.">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#163a53">
-  <title>Hoffman Family Orthodontics | Smiles, Made Personal.</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/fonts.css">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="utility-bar"><div class="container utility-inner"><span>Your neighborhood orthodontist in East Memphis</span><a href="tel:+19016250202">Let’s talk smiles. <strong>901.625.0202</strong></a></div></div>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#" aria-label="Hoffman Family Orthodontics home"><img src="assets/hoffman-logo.svg" width="203" height="55" alt="Hoffman Family Orthodontics"></a>
-      <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
-      <nav id="primary-nav" aria-label="Main navigation"><a href="#meet-dr-rachel">Meet Dr. Rachel</a><a href="#treatments">Our treatments</a><a href="#first-visit">Your first visit</a><a class="button button-small" href="#contact">Let’s get smiling</a></nav>
-    </div>
-  </header>
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Hoffman Family Orthodontics | Smiles, Made Personal."
+  description="Personalized orthodontic care for children, teens, and adults in East Memphis. Meet board-certified orthodontist Dr. Rachel Hoffman and discover your smile possibilities."
+>
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
@@ -33,9 +16,9 @@
           <div class="hero-note"><span class="check-circle" aria-hidden="true">✓</span><span>Complimentary consultations.<br><strong>A comfortable place to start.</strong></span></div>
         </div>
         <div class="hero-visual">
-          <div class="hero-image-wrap"><img class="hero-image" src="assets/smile.webp" alt="A smiling teenager wearing braces" width="1200" height="954" fetchpriority="high"></div>
+          <div class="hero-image-wrap"><img class="hero-image" src="/assets/smile.webp" alt="A smiling teenager wearing braces" width="1200" height="954" fetchpriority="high"></div>
           <div class="smile-stamp" aria-hidden="true"><span>A little more</span><em>you.</em><span>in every smile</span></div>
-          <a class="doctor-badge" href="#meet-dr-rachel"><img src="assets/dr-rachel-headshot.jpg" alt="" width="60" height="60"><span><strong>Expert care. Familiar face.</strong><small>Dr. Rachel Hoffman, MS, DDS, MS</small></span></a>
+          <a class="doctor-badge" href="#meet-dr-rachel"><img src="/assets/dr-rachel-headshot.jpg" alt="" width="60" height="60"><span><strong>Expert care. Familiar face.</strong><small>Dr. Rachel Hoffman, MS, DDS, MS</small></span></a>
           <span class="vertical-note" aria-hidden="true">Good care. Good people. Great smiles.</span>
         </div>
       </div>
@@ -44,7 +27,7 @@
     <section class="doctor-section section" id="meet-dr-rachel" aria-labelledby="doctor-title">
       <div class="container doctor-grid">
         <div class="doctor-portrait">
-          <div class="portrait-frame"><img src="assets/dr-rachel.webp" alt="Dr. Rachel Hoffman smiling in her office" width="1200" height="1800" loading="lazy"></div>
+          <div class="portrait-frame"><img src="/assets/dr-rachel.webp" alt="Dr. Rachel Hoffman smiling in her office" width="1200" height="1800" loading="lazy"></div>
           <div class="portrait-caption"><span class="mini-symbol" aria-hidden="true">✦</span><span>Your smile is in<br><strong>thoughtful hands.</strong></span></div>
         </div>
         <div class="doctor-copy">
@@ -62,7 +45,7 @@
       <div class="container">
         <div class="section-heading"><div><p class="eyebrow">Different paths. One confident you.</p><h2 id="treatment-title">Your smile.<br><em>Your kind of care.</em></h2></div><p>From growing smiles to fresh starts, we’ll help you find a treatment that fits you and your life.</p></div>
         <div class="treatment-grid">
-          <div class="treatment-image"><img src="assets/treatment-options.webp" alt="A woman with braces holding a clear orthodontic appliance" width="1000" height="667" loading="lazy"><span class="image-caption">For children, teens &amp; adults</span></div>
+          <div class="treatment-image"><img src="/assets/treatment-options.webp" alt="A woman with braces holding a clear orthodontic appliance" width="1000" height="667" loading="lazy"><span class="image-caption">For children, teens &amp; adults</span></div>
           <div class="treatment-list">
             <details class="treatment-item" name="treatments" open><summary><span class="item-number">01</span><span>Braces</span><span class="plus" aria-hidden="true"></span></summary><div class="treatment-content"><p>Small details. Big possibilities. Metal and tooth-colored ceramic braces offer precise, personalized treatment for smiles of all ages.</p><a class="text-link" href="https://www.hoffmanfamilyorthodontics.com/treatments" target="_blank" rel="noopener">Explore braces</a></div></details>
             <details class="treatment-item" name="treatments"><summary><span class="item-number">02</span><span>Clear aligners</span><span class="plus" aria-hidden="true"></span></summary><div class="treatment-content"><p>A discreet option that fits into your day. We offer Invisalign® and Angel Aligners, with a custom treatment plan guided by Dr. Rachel.</p><a class="text-link" href="https://www.hoffmanfamilyorthodontics.com/treatments" target="_blank" rel="noopener">Explore clear aligners</a></div></details>
@@ -92,6 +75,4 @@
       <div class="container contact-grid"><div class="contact-copy"><p class="eyebrow">Right here in East Memphis</p><h2 id="contact-title">Your next chapter<br>starts with <em>a smile.</em></h2><p>We’d love to meet you. Let’s make your first visit happen.</p><div class="contact-actions"><a class="button button-light" href="tel:+19016250202">Call 901.625.0202</a><a class="text-link light-link" href="https://www.hoffmanfamilyorthodontics.com/contact#form" target="_blank" rel="noopener">Request a consultation</a></div></div><div class="location-card"><span class="location-label">Come say hello</span><h3>Hoffman Family<br>Orthodontics</h3><address>5159 Wheelis Drive<br>Memphis, TN 38117</address><a class="text-link" href="https://maps.app.goo.gl/JrZmSSodFu2KYgvYA" target="_blank" rel="noopener">Get directions</a><span class="location-rule"></span><a class="location-email" href="mailto:info@hoffmanfamilyorthodontics.com">Email our team</a></div></div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container footer-top"><a class="brand" href="#" aria-label="Hoffman Family Orthodontics home"><img src="assets/hoffman-logo.svg" width="203" height="55" alt="Hoffman Family Orthodontics" loading="lazy"></a><p>Expert care. A personal touch.<br>A little more you in every smile.</p><div class="social-links"><a href="https://www.instagram.com/hoffmanfamilyortho/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/hoffmanfamilyortho" target="_blank" rel="noopener">Facebook</a></div></div><div class="container footer-bottom"><span>© <span id="year">2026</span> Hoffman Family Orthodontics</span><div><a href="https://www.hoffmanfamilyorthodontics.com/accessibility" target="_blank" rel="noopener">Accessibility</a><a href="https://www.hoffmanfamilyorthodontics.com/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></div><span>Made for Memphis. Made for you.</span></div></footer>
-</body>
-</html>
+</BaseLayout>
