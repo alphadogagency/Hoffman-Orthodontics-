@@ -29,7 +29,7 @@ Edit `src/` and `public/`, not generated `dist/`.
 - `src/components/ConsultationRequest.astro`: deferred Jotform insertion point
 - `functions/api/google-reviews.ts` and `worker/google-reviews.ts`: Pages adapter and private review handler
 - `public/_redirects`: 301 rules for known legacy URLs
-- `docs/punch-list-status.md`: source evidence, completed work, remaining approvals
+- `docs/punch-list-status.md`: source evidence, completed work, and remaining requested items
 
 ## Cloudflare Pages
 
@@ -56,7 +56,7 @@ Configuration:
 3. `wrangler.jsonc` supplies `PUBLIC_ENABLE_GOOGLE_REVIEWS=true` and `PUBLIC_ALLOW_INDEXING=false` to Cloudflare's build. The dashboard manages the encrypted secret; non-secret configuration belongs in Wrangler. Redeploy after changing bindings.
 4. Google quotas are **10 GetPlace requests per day** and **5 per minute**. The six unused methods (autocomplete, photo media, media search, nearby search, review-post search, text search) each have a daily quota of zero. These are enforced request limits, not budget alerts.
 
-At the verified October 6 [price](https://developers.google.com/maps/billing-and-pricing/pricing) of $25 per 1,000 Place Details Enterprise + Atmosphere requests, 10 daily requests cost at most $7.75 in a 31-day month before credits/taxes. This leaves room within the approved $10 allowance without assuming any shared billing-account free allowance remains. Revisit the cap before public launch: ten homepage loads can consume the daily allowance. When exhausted, the site shows the genuine Google profile link until quota resets. Do not raise these limits or use the key for additional operations without reviewing the approved allowance.
+At the verified October 6 [price](https://developers.google.com/maps/billing-and-pricing/pricing) of $25 per 1,000 Place Details Enterprise + Atmosphere requests, 10 daily requests cost at most $7.75 in a 31-day month before credits/taxes. This leaves room within the approved $10 allowance without assuming any shared billing-account free allowance remains. Ten homepage loads can consume the daily allowance. When exhausted, the site shows the genuine Google profile link until quota resets. This cap is an implementation setting for Bryan's approved budget, not a remaining requirement from Kyle's MD. Changing it must remain within the authorized spending allowance.
 
 Only the Pages production environment is connected. Branch previews and plain Astro development do not inherit the secret. For a local live review check, use ignored `.dev.vars` and build with `PUBLIC_ENABLE_GOOGLE_REVIEWS=true`; local requests share the same quota. No static reviews or rating are embedded.
 
@@ -70,8 +70,8 @@ Five-star written reviews are filtered from Google’s selection of at most five
 
 Keep `PUBLIC_ALLOW_INDEXING=false` on staging. Page-level `noindex, nofollow` remains in place; robots permits crawling so search engines can read that instruction. Staging has an empty sitemap.
 
-At the separately approved custom-domain launch, set `PUBLIC_ALLOW_INDEXING=true` and rebuild. This adds production canonicals and a sitemap of the 26 content URLs. Validate the custom domain, both host variants, redirects, and indexing headers before submission to Search Console. Keep Pages preview hosts excluded from indexing or redirect them appropriately after launch.
+At the custom-domain launch deferred by Bryan, set `PUBLIC_ALLOW_INDEXING=true` and rebuild. This adds production canonicals and a sitemap of the 26 content URLs. Validate the custom domain, both host variants, redirects, and indexing headers. Keep Pages preview hosts excluded from indexing or redirect them appropriately after launch.
 
 Add the supplied Jotform embed to `src/components/ConsultationRequest.astro`, preserving `/contact/#form`. Until then the section has working phone/email links and does not submit patient data. Verify the submission recipient, confirmation behavior, mobile layout, and privacy wording when the embed arrives.
 
-The original privacy policy is retained with a limited addition covering the new map/review features. Its practice-wide claims and final form behavior still need practice review before launch. New educational and community copy is draft marketing content for approval, not a claim of clinical review.
+The original privacy policy is retained with a limited addition covering the new map/review features. Match the form disclosure to the supplied Jotform when embedded. Per Bryan's scope clarification, separate practice sign-off on the existing policy or new copy is not an added launch requirement.

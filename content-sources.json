@@ -17,17 +17,17 @@
     "consultation.webp": "assets.zip / cueorthodontics-new-patients-hero.webp; generic illustrative dental-model consultation photograph, not represented as Dr. Hoffman."
   },
   "review_notes": [
-    "Marketing headlines and summaries are new draft copy based on supplied practice content.",
+    "Marketing headlines and summaries are new copy based on supplied practice content.",
     "Doctor credentials, education, office contact details, treatment offerings and FAQ answers are grounded in the supplied export.",
     "Generic template staff, office and before-and-after images were excluded; illustrative photos are not identified as Hoffman staff, premises or patient results.",
     "Jotform is intentionally deferred at user request. src/components/ConsultationRequest.astro contains the working phone/email fallback and insertion point; preserve contact/#form.",
     "No analytics, new booking service, or patient data collection has been added.",
     "Accessibility and privacy wording is carried from the supplied pages, not a new compliance certification. Reconcile the existing privacy wording with the final Jotform configuration before the public launch.",
     "Cloudflare staging remains noindex; live-domain launch is outside this round.",
-    "Live Maps hours and exact coordinates verified October 6. Fax agrees with the old export and live Contact page but has not been reconfirmed by the practice.",
+    "Live Maps hours and exact coordinates verified October 6. Fax agrees with the old export and live Contact page; Bryan instructed us to retain supplied/published details without an additional practice-confirmation step.",
     "Google reviews API and slider are connected to the practice-specific Google Cloud project and verified on Cloudflare staging; no static reviews or rating are embedded. Google's official Place ID finder confirmed the exact Wheelis Drive location. Usage caps and setup details are documented in README.md.",
-    "New treatment, cost, and local copy is draft content for practice approval. Pricing and financing numbers are deliberately omitted because not supplied.",
+    "New treatment, cost, and local copy implements Kyle's request. Bryan clarified that separate practice sign-off is not an added requirement. Pricing and financing numbers are omitted because not supplied.",
     "Valid Dentist/LocalBusiness, Person, and FAQPage structured data added; no fabricated ratings or branches.",
-    "Privacy date updated only for the added Google Maps/reviews disclosure; final Jotform and practice policy review still pending."
+    "Privacy date updated only for the added Google Maps/reviews disclosure; align the form disclosure with the final Jotform when supplied."
   ]
 }

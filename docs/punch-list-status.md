@@ -1,5 +1,9 @@
 # October 6, 2026 punch-list implementation
 
+## Scope
+
+Follow Kyle's requested edits and Bryan's instructions. Bryan clarified that separate practice sign-off is not a development or launch gate. Use the supplied and published practice details; retain the published fax without an additional confirmation step. Missing pricing numbers remain missing information, not an approval requirement. Jotform and the domain switch remain deferred by Bryan.
+
 ## Applied
 
 - Eight treatment guides, linked from the Treatments hub: metal braces, ceramic braces, Invisalign, Angel Aligners, early evaluation, teens, adults, retainers.
@@ -24,14 +28,19 @@
 - General education: [ABO patient information](https://exam.americanboardortho.com/patients/), [AAO first evaluation](https://aaoinfo.org/whats-trending/when-should-your-child-see-an-orthodontist/), [AAO aligners](https://aaoinfo.org/treatments/aligners/), [AAO adult questions](https://aaoinfo.org/orthodontists-respond-to-frequently-asked-questions-from-adults-considering-treatment/), [AAO emergency guidance](https://aaoinfo.org/whats-trending/what-is-an-orthodontic-emergency/).
 - Local context: [Memphis Travel neighborhoods](https://www.memphistravel.com/neighborhoods), [East Memphis](https://www.memphistravel.com/neighborhoods/east-memphis), [regional landmarks](https://www.memphistravel.com/neighborhood-guide-memphis-barbecue), [Bartlett parks](https://www.cityofbartlett.org/167/City-Parks-Listing). Local references describe geography, not practice partnerships.
 
-## Remaining
+## Remaining from Kyle's request
 
-1. **Review capacity before public launch:** Bryan approved the new `hoffman-orthodontics-reviews` project under Alpha Dog's Firebase Payment account and a $10/month allowance. The restricted key is saved privately in the Pages production environment. Google caps review lookups at 10/day and 5/minute; all six unused Places methods have a zero daily quota. This conservatively stays under the allowance without relying on shared free credits, but ten homepage loads can exhaust the daily cap. The genuine profile link remains available after quota exhaustion. Review this staging cap against expected launch traffic before increasing it. See README for configuration and cost calculations. Local Wrangler remains unauthenticated; deployment uses the existing Git integration.
-2. **Practice confirmation:** approve clinical/marketing drafts, verify published hours and fax remain current, supply pricing ranges/plan terms/insurance details if numeric cost content is desired. Hours were found, so there is no need to ask the practice to recreate them from scratch.
-3. **Jotform:** explicitly deferred by Bryan; embed and submission recipient still needed. `#form` lands on the current phone/email consultation section.
-4. **Before/after photographs:** no verified, consented Hoffman patient case set supplied. Template/other-practice images are not presented as Hoffman outcomes.
-5. **Launch only:** domain transition, remove noindex in the approved production build, verify both domain variants, sitemap and any host-level indexing controls.
-6. **Legacy URL coverage:** the current public sitemap has seven routes, all preserved. Rules also cover relevant exported aliases. Obtain a Search Console indexed-URL export before launch to identify any URLs outside the public sitemap/export. Old empty `/blog/` and `/thank-you/` placeholders have no equivalent published content and are not redirected indiscriminately to Home.
+1. **Jotform:** explicitly deferred by Bryan; insert the supplied embed at `#form`. Kyle requested name, phone, email, patient age group, preferred time, and the intended submission destination.
+2. **Pricing details:** the cost/financing page is built, but Kyle explicitly requested typical ranges and said it needs numbers from the practice. No actual pricing ranges, specific payment-plan terms, or insurer list were supplied or found. Add those details when supplied; no invented numbers or separate client sign-off task.
+3. **At the domain switch:** remove noindex and verify the redirects on the final domain. The current public sitemap's seven routes and relevant exported aliases are covered by the existing redirect map. Coverage of additional Google-indexed URLs outside those sources has not been established. A Search Console export is one possible source, not a separately required deliverable from Kyle.
+4. **Page-speed pass:** Kyle's opening note calls for this alongside visual/mobile checks. Visual/mobile verification is recorded below; a dedicated live page-speed result has not been recorded.
+5. **Conditional only — before/after photographs:** Kyle says to add cases if the practice supplies them. No suitable Hoffman patient cases with consent were supplied. This is not an unconditional completion or launch gate.
+
+## Completed reviews setup — operating notes
+
+Kyle requested a homepage Google Reviews slider (same approach as OSM) and a rating line near the hero CTA. Both are implemented. He specified neither five-star-only filtering nor a request limit. Five-star written reviews, newest first within Google's selection, follow the existing implementation preference.
+
+The 10/day and 5/minute Google request caps are implementation settings for Bryan's approved $10/month allowance, not unfinished Kyle punch-list items. All six unused Places methods have zero daily quota. Ten homepage loads can exhaust the daily cap, after which the genuine Google profile link remains available. The key is stored privately in Cloudflare. See README for configuration and cost details; this clarification does not change the approved billing allowance.
 
 ## Verification
 
