@@ -1,5 +1,6 @@
 import type { GoogleReviewsResponse } from '../lib/google-reviews';
 const section = document.querySelector<HTMLElement>('#reviews');
+const hero = document.querySelector<HTMLAnchorElement>('.hero-rating');
 if (section?.dataset.reviewsEnabled === 'true') {
   const track = section.querySelector<HTMLElement>('#reviews-track')!;
   const template = section.querySelector<HTMLTemplateElement>('[data-review-template]')!;
@@ -25,6 +26,7 @@ if (section?.dataset.reviewsEnabled === 'true') {
         const stars = document.querySelector<HTMLElement>('[data-hero-stars]');
         const fill = stars?.querySelector<HTMLElement>('[data-star-fill]');
         if (stars && fill) { fill.style.width = `${data.rating / 5 * 100}%`; stars.hidden = false; }
+        hero?.setAttribute('aria-label', `${data.rating.toFixed(1)} out of 5 from ${data.reviewCount} Google ${data.reviewCount === 1 ? 'review' : 'reviews'}. Read on Google Maps.`);
       }
       if (!Array.isArray(data.reviews)) return;
       for (const review of data.reviews.slice(0, 5)) {
@@ -75,11 +77,11 @@ if (section?.dataset.reviewsEnabled === 'true') {
       track.addEventListener('scroll', update, { passive: true });
       new ResizeObserver(update).observe(track); update();
     } catch { /* The real Google profile link remains available. No retries or fabricated reviews. */ }
+    finally { hero?.removeAttribute('data-loading'); }
   }
   const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); void loadReviews(); } }, { rootMargin: '150px' });
   // Direct links to #reviews can start with the hero outside the viewport.
   // Either visible location should load the shared data, once per page view.
   observer.observe(section);
-  const hero = document.querySelector('.hero-rating');
   if (hero) observer.observe(hero);
 }

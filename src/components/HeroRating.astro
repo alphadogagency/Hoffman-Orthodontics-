@@ -1,0 +1,23 @@
+---
+import { googleReviewsUrl } from '../lib/google-reviews';
+const enabled = import.meta.env.PUBLIC_ENABLE_GOOGLE_REVIEWS === 'true';
+---
+<a class="hero-rating" href={googleReviewsUrl} target="_blank" rel="noopener" aria-label="Read our patient reviews on Google Maps">
+  <span class="hero-rating-details">
+    <span class="rating-stars" data-hero-stars aria-hidden="true" hidden>★★★★★<span data-star-fill>★★★★★</span></span>
+    <span data-hero-rating>Read our patient reviews</span>
+  </span>
+  <span class="hero-rating-placeholder" aria-hidden="true"></span>
+  <span class="maps-text" translate="no">Google Maps</span>
+</a>
+{enabled && <script is:inline>
+  // Run during parsing so the fallback doesn't flash before the module loads.
+  // Without JavaScript, the ordinary Google Maps link remains visible.
+  (() => {
+    const rating = document.querySelector('.hero-rating');
+    if (!rating) return;
+    rating.setAttribute('data-loading', '');
+    // Recover the fallback even if the review module fails to load.
+    window.setTimeout(() => rating.removeAttribute('data-loading'), 9000);
+  })();
+</script>}

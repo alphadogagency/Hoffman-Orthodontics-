@@ -66,6 +66,8 @@ Live verification on October 6 confirmed HTTP 200 JSON with no-store headers, fo
 
 The endpoint requests only reviews, provider attribution, aggregate rating and review count. It reads a fixed server-configured business, rejects cross-site browser fetches, bounds upstream time to six seconds, does not follow redirects with credentials, and sends no-store headers. Browser fetching runs once when the hero rating enters view. Cross-site checks are not a substitute for provider quota or host rate limits.
 
+The hero reserves space for its rating and Google Maps attribution. With JavaScript enabled, a neutral placeholder remains until the request finishes; errors, missing data, and timeouts reveal the genuine profile link. Without JavaScript the profile link is immediately visible. A nine-second fallback also covers a failed frontend module. This changes presentation only; requests, quotas, billing, and storage remain unchanged.
+
 Five-star written reviews are filtered from Google’s selection of at most five and sorted newest first within that selection. Review words, authors, profile links/photos, dates, individual source links, and provider attribution are preserved. Official Google Maps attribution is included. No review content is stored in a database or bundled into the static build.
 
 ## Preview and launch
@@ -75,5 +77,7 @@ Keep `PUBLIC_ALLOW_INDEXING=false` on staging. Page-level `noindex, nofollow` re
 At the custom-domain launch deferred by Bryan, set `PUBLIC_ALLOW_INDEXING=true` in the workflow build environment and `wrangler.jsonc`, then rebuild. This adds production canonicals and a sitemap of the 26 content URLs. Validate the custom domain, both host variants, redirects, and indexing headers. Keep Pages preview hosts excluded from indexing or redirect them appropriately after launch.
 
 Jotform `262794560250055`, supplied by Bryan October 7, is embedded in `src/components/ConsultationRequest.astro` at `/contact/#form`. Jotform's handler resizes the iframe; the embed omits the original unconditional scroll-to-top so consultation anchors remain usable. Phone and direct-form fallbacks remain. Form fields, delivery, and notifications are managed in the supplied Jotform; rendering and required-field validation are checked without submitting a message.
+
+Direct `#form` visits realign after fonts, embeds, and browser scroll restoration settle, including reloads across desktop/mobile layouts. Any visitor interaction cancels the later adjustment, and back/forward navigation retains the browser's saved position. Jotform's internal styling and notification settings are unchanged.
 
 The original privacy policy is retained with limited additions covering the map, reviews, and supplied Jotform. Per Bryan's scope clarification, separate practice sign-off on the existing policy or new copy is not an added launch requirement.

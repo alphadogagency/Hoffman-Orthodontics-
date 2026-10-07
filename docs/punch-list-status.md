@@ -38,6 +38,14 @@ Follow Kyle's requested edits and Bryan's instructions. Bryan clarified that sep
 - OSM’s reference uses Trustindex. Bryan declined Trustindex; retain the custom Google slider and explain the existing ten-request daily cap. No quota/billing increase made. The cap can still cause the fallback-only state after usage is exhausted.
 - Kyle says service-area pages are fine for launch; no further expansion in this round. He may send payment terms later, but prices are no longer an outstanding input. Before/after cases remain conditional on supplied material.
 
+## October 7 follow-up: anchor and rating loading
+
+- Bryan authorized items 3 and 4; the review cap/service decision is deferred. No Jotform styling, submission, notification, quota, or billing changes are included.
+- Confirmed the review count comes from Google's aggregate `userRatingCount`, independently of the returned review cards.
+- Reproduced a restored-scroll issue when reloading `#form` after changing between desktop and mobile layouts. Added an initial anchor correction after page loading and browser restoration, canceled by visitor interaction and skipped for back/forward navigation.
+- Replaced the hero's fallback-to-rating flash with a neutral loading placeholder and reserved layout space. The genuine profile link remains available on failures, missing data, timeouts, absent JavaScript, or a failed module.
+- Local browser checks covered desktop and 390/320px layouts, direct form links, homepage consultation clicks, and reloads across breakpoints. Delayed synthetic aggregate data produced no vertical movement of the rating or following note. Failure, empty, timeout, no-script, and missing-module cases recovered the profile link. Fixtures lived only in a temporary loopback test server and never called Google or entered the deployed build.
+
 ## Completed reviews setup — operating notes
 
 Kyle requested a homepage Google Reviews slider (same approach as OSM) and a rating line near the hero CTA. Both are implemented. He specified neither five-star-only filtering nor a request limit. Five-star written reviews, newest first within Google's selection, follow the existing implementation preference.
