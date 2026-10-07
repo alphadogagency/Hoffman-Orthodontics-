@@ -29,7 +29,7 @@ Edit `src/` and `public/`, not generated `dist/`.
 - `src/components/ConsultationRequest.astro`: deferred Jotform insertion point
 - `functions/api/google-reviews.ts` and `worker/google-reviews.ts`: Pages adapter and private review handler
 - `public/_redirects`: 301 rules for known legacy URLs
-- `docs/punch-list-status.md`: source evidence, completed work, and remaining requested items
+- `docs/punch-list-status.md`: source evidence, completed work, and remaining inputs
 
 ## Cloudflare Pages
 

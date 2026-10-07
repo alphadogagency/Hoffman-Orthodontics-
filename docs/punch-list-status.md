@@ -21,6 +21,7 @@ Follow Kyle's requested edits and Bryan's instructions. Bryan clarified that sep
 
 - [Current Contact page](https://www.hoffmanfamilyorthodontics.com/contact): phone **901.625.0202**, fax **901.425.0202**, address **5159 Wheelis Drive, Memphis, TN 38117**, existing email/social links. Fax matches the supplied export; this verifies consistency with published sources, not a fresh confirmation from the practice.
 - [Current New Patients page](https://www.hoffmanfamilyorthodontics.com/new-patients): complimentary consultation, flexible payment plans, most insurance providers. No price ranges, carrier list, payment terms, or standard consult length supplied.
+- Pricing rechecked October 7 directly on the live Home, New Patients, FAQ, and Treatments pages, in the supplied HTML export, and in the handoff/review emails and targeted Gmail searches. No treatment prices or monthly payment amounts found. The $250 in the transition email is an agency onboarding payment, not a patient treatment price. Kyle explicitly requested typical ranges to answer "How much do braces cost in Memphis" and wrote "Needs numbers from the practice."
 - [Google Maps listing](https://maps.app.goo.gl/JrZmSSodFu2KYgvYA), inspected October 6: Monday–Thursday **8 a.m.–5 p.m.**, Friday–Sunday **closed**. Google flags possible holiday differences. Coordinates **35.1142387, -89.8898953**; these differ from the old website’s approximate coordinates.
 - Same Google listing supplies live reviews through Places API (New). Google's official Place ID finder verified `ChIJA3iJOgCFf4gRD9BScWOg2mc` against the exact name and Wheelis Drive address.
 - Gmail handoff: `1a0cabe86287cc68` (Rooster Grin export), `1a0c943bbc7a4747` (client transition/Google Business Profile access), `1a112410038f3d03` (Kyle’s review and Bryan’s explicit Jotform/domain deferral). No pricing sheet, confirmed financing terms, review embed, or Places API configuration found in those threads or the targeted email searches. No messages sent.
@@ -28,13 +29,12 @@ Follow Kyle's requested edits and Bryan's instructions. Bryan clarified that sep
 - General education: [ABO patient information](https://exam.americanboardortho.com/patients/), [AAO first evaluation](https://aaoinfo.org/whats-trending/when-should-your-child-see-an-orthodontist/), [AAO aligners](https://aaoinfo.org/treatments/aligners/), [AAO adult questions](https://aaoinfo.org/orthodontists-respond-to-frequently-asked-questions-from-adults-considering-treatment/), [AAO emergency guidance](https://aaoinfo.org/whats-trending/what-is-an-orthodontic-emergency/).
 - Local context: [Memphis Travel neighborhoods](https://www.memphistravel.com/neighborhoods), [East Memphis](https://www.memphistravel.com/neighborhoods/east-memphis), [regional landmarks](https://www.memphistravel.com/neighborhood-guide-memphis-barbecue), [Bartlett parks](https://www.cityofbartlett.org/167/City-Parks-Listing). Local references describe geography, not practice partnerships.
 
-## Remaining from Kyle's request
+## Inputs still needed
 
 1. **Jotform:** explicitly deferred by Bryan; insert the supplied embed at `#form`. Kyle requested name, phone, email, patient age group, preferred time, and the intended submission destination.
-2. **Pricing details:** the cost/financing page is built, but Kyle explicitly requested typical ranges and said it needs numbers from the practice. No actual pricing ranges, specific payment-plan terms, or insurer list were supplied or found. Add those details when supplied; no invented numbers or separate client sign-off task.
-3. **At the domain switch:** remove noindex and verify the redirects on the final domain. The current public sitemap's seven routes and relevant exported aliases are covered by the existing redirect map. Coverage of additional Google-indexed URLs outside those sources has not been established. A Search Console export is one possible source, not a separately required deliverable from Kyle.
-4. **Page-speed pass:** Kyle's opening note calls for this alongside visual/mobile checks. Visual/mobile verification is recorded below; a dedicated live page-speed result has not been recorded.
-5. **Conditional only — before/after photographs:** Kyle says to add cases if the practice supplies them. No suitable Hoffman patient cases with consent were supplied. This is not an unconditional completion or launch gate.
+2. **Pricing:** Bryan will supply the treatment price or range for the existing cost/financing page. Published consultation, insurance, and flexible-payment information is already included.
+
+Kyle's before/after request is conditional on supplied patient cases. It is not an outstanding required input. Launch configuration is documented in README and is omitted from Bryan's input list.
 
 ## Completed reviews setup — operating notes
 
@@ -43,6 +43,8 @@ Kyle requested a homepage Google Reviews slider (same approach as OSM) and a rat
 The 10/day and 5/minute Google request caps are implementation settings for Bryan's approved $10/month allowance, not unfinished Kyle punch-list items. All six unused Places methods have zero daily quota. Ten homepage loads can exhaust the daily cap, after which the genuine Google profile link remains available. The key is stored privately in Cloudflare. See README for configuration and cost details; this clarification does not change the approved billing allowance.
 
 ## Verification
+
+The recorded checks below cover builds, functionality, and desktop/mobile layout. They do not constitute a measured page-speed audit; no separate speed score has been recorded. This is a verification distinction, not information Bryan needs to supply.
 
 - Astro check: zero errors/warnings; production build: 27 HTML pages (26 content pages plus 404).
 - Review handler tests cover server-fixed upstream configuration, five-star selection/date ordering, unsafe/malformed data, missing configuration, unsupported methods, cross-site requests, and redacted provider failures.
