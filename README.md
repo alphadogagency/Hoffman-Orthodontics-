@@ -1,6 +1,6 @@
 # Hoffman Family Orthodontics
 
-Astro website with static pages and one Cloudflare Pages Function for live Google reviews. The existing staging project is `hoffman-orthodontics`, connected to this repository’s `main` branch:
+Astro website with static pages and one Cloudflare Pages Function for live Google reviews. GitHub Actions publishes this repository’s `main` branch to the existing staging project, `hoffman-orthodontics`:
 
 https://hoffman-orthodontics.pages.dev/
 
@@ -41,7 +41,9 @@ Edit `src/` and `public/`, not generated `dist/`.
 | Root directory | Repository root |
 | Node version | `22.22.2` |
 
-`wrangler.jsonc` now targets the actual Pages project. `cf:preview` and `cf:validate` are aliases for the Pages commands. `cf:deploy` is an explicit publish command and requires authentication to the intended Cloudflare account. Normal updates use the existing Git integration.
+`wrangler.jsonc` targets the actual Pages project. `cf:preview` and `cf:validate` are aliases for the Pages commands. `cf:deploy` is an explicit publish command and requires authentication to the intended Cloudflare account.
+
+Normal updates use `.github/workflows/deploy.yml`: pushes to `main` install the locked dependencies, check and test the site, build it, validate Functions, and deploy with Wrangler. The workflow can also be run manually from GitHub's Actions tab on `main`. It uses the repository secret `CLOUDFLARE_API_TOKEN` and the agency Cloudflare account ID; the token is available only to the publishing step. The repository is `alphadogagency/Hoffman-Orthodontics-`. Its ownership transfer disconnected the old Cloudflare Git integration, so GitHub Actions now handles publishing to the same Pages project and URL. Disable the old automatic Git deployments in Cloudflare to avoid competing deployment paths.
 
 The root `functions/` directory must be included in deployment. A static dashboard upload or the old private Sites preview will not run the reviews Function. `_routes.json` limits function invocation to `/api/google-reviews`; static pages and legacy redirects remain on the asset path.
 
@@ -53,7 +55,7 @@ Configuration:
 
 1. The active key, named **Hoffman Cloudflare Reviews**, is restricted to Places API (New), without a service account or access to private Google account data. It is stored only as the Pages production secret `GOOGLE_PLACES_API_KEY`. The temporary onboarding key was removed. Cloudflare does not provide stable outbound IPs for this setup; browser-referrer restrictions do not apply to server calls.
 2. Google's official Place ID finder verified `ChIJA3iJOgCFf4gRD9BScWOg2mc` for **Hoffman Family Orthodontics, 5159 Wheelis Drive, Memphis, TN 38117**. The public ID is in `wrangler.jsonc`.
-3. `wrangler.jsonc` supplies `PUBLIC_ENABLE_GOOGLE_REVIEWS=true` and `PUBLIC_ALLOW_INDEXING=false` to Cloudflare's build. The dashboard manages the encrypted secret; non-secret configuration belongs in Wrangler. Redeploy after changing bindings.
+3. The GitHub Actions build sets `PUBLIC_ENABLE_GOOGLE_REVIEWS=true` and `PUBLIC_ALLOW_INDEXING=false`; `wrangler.jsonc` supplies the runtime bindings. The dashboard manages the encrypted Google API secret, which stays in the existing Pages project and is not needed in GitHub. Redeploy after changing bindings.
 4. Google quotas are **10 GetPlace requests per day** and **5 per minute**. The six unused methods (autocomplete, photo media, media search, nearby search, review-post search, text search) each have a daily quota of zero. These are enforced request limits, not budget alerts.
 
 At the verified October 6 [price](https://developers.google.com/maps/billing-and-pricing/pricing) of $25 per 1,000 Place Details Enterprise + Atmosphere requests, 10 daily requests cost at most $7.75 in a 31-day month before credits/taxes. This leaves room within the approved $10 allowance without assuming any shared billing-account free allowance remains. Ten homepage loads can consume the daily allowance. When exhausted, the site shows the genuine Google profile link until quota resets. This cap is an implementation setting for Bryan's approved budget, not a remaining requirement from Kyle's MD. Changing it must remain within the authorized spending allowance.
@@ -70,7 +72,7 @@ Five-star written reviews are filtered from Google’s selection of at most five
 
 Keep `PUBLIC_ALLOW_INDEXING=false` on staging. Page-level `noindex, nofollow` remains in place; robots permits crawling so search engines can read that instruction. Staging has an empty sitemap.
 
-At the custom-domain launch deferred by Bryan, set `PUBLIC_ALLOW_INDEXING=true` and rebuild. This adds production canonicals and a sitemap of the 26 content URLs. Validate the custom domain, both host variants, redirects, and indexing headers. Keep Pages preview hosts excluded from indexing or redirect them appropriately after launch.
+At the custom-domain launch deferred by Bryan, set `PUBLIC_ALLOW_INDEXING=true` in the workflow build environment and `wrangler.jsonc`, then rebuild. This adds production canonicals and a sitemap of the 26 content URLs. Validate the custom domain, both host variants, redirects, and indexing headers. Keep Pages preview hosts excluded from indexing or redirect them appropriately after launch.
 
 Jotform `262794560250055`, supplied by Bryan October 7, is embedded in `src/components/ConsultationRequest.astro` at `/contact/#form`. Jotform's handler resizes the iframe; the embed omits the original unconditional scroll-to-top so consultation anchors remain usable. Phone and direct-form fallbacks remain. Form fields, delivery, and notifications are managed in the supplied Jotform; rendering and required-field validation are checked without submitting a message.
 
