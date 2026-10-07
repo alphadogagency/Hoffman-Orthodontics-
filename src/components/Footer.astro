@@ -8,5 +8,12 @@ import OfficeHours from './OfficeHours.astro';
     <div class="social-links"><a href="https://www.instagram.com/hoffmanfamilyortho/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/hoffmanfamilyortho" target="_blank" rel="noopener">Facebook</a></div>
   </div>
   <nav class="container footer-nav" aria-label="Footer navigation"><a href="/">Home</a><a href="/about/">About</a><a href="/new-patients/">New patients</a><a href="/treatments/">Treatments</a><a href="/cost-and-financing/">Cost &amp; financing</a><a href="/areas/">Our community</a><a href="/faq/">FAQs</a><a href="/contact/">Contact</a></nav>
-  <div class="container footer-bottom"><span>© {new Date().getFullYear()} Hoffman Family Orthodontics</span><div><a href="/accessibility/">Accessibility</a><a href="/privacy-policy/">Privacy policy</a><a href="/website-terms/">Website terms</a></div><span>Made for Memphis. Made for you.</span></div>
+  <div class="container footer-bottom">
+    <p class="footer-credit">© Copyright {new Date().getFullYear()} Hoffman Family Orthodontics <span aria-hidden="true">|</span> All Rights Reserved <span aria-hidden="true">|</span> <a href="https://www.alphadogagency.com/" target="_blank" rel="noopener noreferrer">Marketing: Alpha Dog Agency</a></p>
+    <div><a href="/accessibility/">Accessibility</a><a href="/privacy-policy/">Privacy policy</a><a href="/website-terms/">Website terms</a></div>
+  </div>
 </footer>
+<style>
+  .footer-credit { margin: 0; }
+  .footer-credit a { display: inline-block; text-decoration: underline; text-underline-offset: 3px; }
+</style>
