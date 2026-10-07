@@ -44,7 +44,9 @@ The 10/day and 5/minute Google request caps are implementation settings for Brya
 
 ## Verification
 
-The recorded checks below cover builds, functionality, and desktop/mobile layout. They do not constitute a measured page-speed audit; no separate speed score has been recorded. This is a verification distinction, not information Bryan needs to supply.
+The recorded checks cover builds, functionality, desktop/mobile layout, and the measured homepage PageSpeed pass completed October 7. Pricing is the only required information outstanding from Kyle; Jotform and launch indexing remain Bryan's deferred final steps.
+
+- [Google PageSpeed Insights, October 7, 2026 at 12:06 a.m. EDT](https://pagespeed.web.dev/analysis/https-hoffman-orthodontics-pages-dev/387l22h6f2?form_factor=mobile): live staging homepage scored **97/100 mobile** and **100/100 desktop** for performance. Mobile: FCP 1.8 s, LCP 2.3 s, TBT 0 ms, CLS 0.008. Desktop: FCP/LCP 0.4 s, TBT 0 ms, CLS 0.002. Lighthouse 13.5.0 lab tests; real-user field data is not yet available. This measures the current homepage before the deferred Jotform embed. The report also records Accessibility 96, Best Practices 100, and SEO 66; the SEO failure is the intentional staging noindex. No performance changes were needed for this pass.
 
 - Astro check: zero errors/warnings; production build: 27 HTML pages (26 content pages plus 404).
 - Review handler tests cover server-fixed upstream configuration, five-star selection/date ordering, unsafe/malformed data, missing configuration, unsupported methods, cross-site requests, and redacted provider failures.
