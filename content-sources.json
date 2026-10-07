@@ -23,9 +23,9 @@
     "Jotform is intentionally deferred at user request. src/components/ConsultationRequest.astro contains the working phone/email fallback and insertion point; preserve contact/#form.",
     "No analytics, new booking service, or patient data collection has been added.",
     "Accessibility and privacy wording is carried from the supplied pages, not a new compliance certification. Reconcile the existing privacy wording with the final Jotform configuration before the public launch.",
-    "Private preview remains noindex; live-domain launch is outside this round.",
+    "Cloudflare staging remains noindex; live-domain launch is outside this round.",
     "Live Maps hours and exact coordinates verified October 6. Fax agrees with the old export and live Contact page but has not been reconfirmed by the practice.",
-    "Google reviews API and slider are implemented but disabled pending practice-specific runtime configuration; no static reviews or rating are embedded.",
+    "Google reviews API and slider are connected to the practice-specific Google Cloud project and verified on Cloudflare staging; no static reviews or rating are embedded. Google's official Place ID finder confirmed the exact Wheelis Drive location. Usage caps and setup details are documented in README.md.",
     "New treatment, cost, and local copy is draft content for practice approval. Pricing and financing numbers are deliberately omitted because not supplied.",
     "Valid Dentist/LocalBusiness, Person, and FAQPage structured data added; no fabricated ratings or branches.",
     "Privacy date updated only for the added Google Maps/reviews disclosure; final Jotform and practice policy review still pending."

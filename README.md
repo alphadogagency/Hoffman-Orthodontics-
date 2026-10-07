@@ -45,17 +45,22 @@ Edit `src/` and `public/`, not generated `dist/`.
 
 The root `functions/` directory must be included in deployment. A static dashboard upload or the old private Sites preview will not run the reviews Function. `_routes.json` limits function invocation to `/api/google-reviews`; static pages and legacy redirects remain on the asset path.
 
-## Google reviews: activation pending
+## Google reviews
 
-The review slider and hero rating use the Places API (New). They are not connected yet. The staging page currently offers the real Google profile link; it displays no invented reviews or hardcoded rating.
+The review slider and hero rating use the Places API (New) through this practice's Google Cloud project, `hoffman-orthodontics-reviews`. Bryan approved the agency's Firebase Payment billing account, a $10/month allowance, and private storage of the restricted key in Cloudflare on October 6, 2026.
 
-To activate:
+Configuration:
 
-1. Select the intended agency Google Cloud project with billing and Places API (New). Establish an approved request quota before activation; requests can be billable, and budget alerts do not cap spending.
-2. Obtain the Place ID for **Hoffman Family Orthodontics, 5159 Wheelis Drive, Memphis, TN 38117**. Use the verified [Google listing](https://maps.app.goo.gl/JrZmSSodFu2KYgvYA) to disambiguate similarly named practices.
-3. Restrict the server API key to Places API (New). Bind secret `GOOGLE_PLACES_API_KEY` and server variable `GOOGLE_PLACE_ID` to the appropriate Pages deployment environment. Keep the key out of source and browser bundles.
-4. Set build variable `PUBLIC_ENABLE_GOOGLE_REVIEWS=true` and redeploy.
-5. Verify `/api/google-reviews` returns JSON with this practice’s real reviews, then verify desktop/mobile cards and the hero rating.
+1. The active key, named **Hoffman Cloudflare Reviews**, is restricted to Places API (New), without a service account or access to private Google account data. It is stored only as the Pages production secret `GOOGLE_PLACES_API_KEY`. The temporary onboarding key was removed. Cloudflare does not provide stable outbound IPs for this setup; browser-referrer restrictions do not apply to server calls.
+2. Google's official Place ID finder verified `ChIJA3iJOgCFf4gRD9BScWOg2mc` for **Hoffman Family Orthodontics, 5159 Wheelis Drive, Memphis, TN 38117**. The public ID is in `wrangler.jsonc`.
+3. `wrangler.jsonc` supplies `PUBLIC_ENABLE_GOOGLE_REVIEWS=true` and `PUBLIC_ALLOW_INDEXING=false` to Cloudflare's build. The dashboard manages the encrypted secret; non-secret configuration belongs in Wrangler. Redeploy after changing bindings.
+4. Google quotas are **10 GetPlace requests per day** and **5 per minute**. The six unused methods (autocomplete, photo media, media search, nearby search, review-post search, text search) each have a daily quota of zero. These are enforced request limits, not budget alerts.
+
+At the verified October 6 [price](https://developers.google.com/maps/billing-and-pricing/pricing) of $25 per 1,000 Place Details Enterprise + Atmosphere requests, 10 daily requests cost at most $7.75 in a 31-day month before credits/taxes. This leaves room within the approved $10 allowance without assuming any shared billing-account free allowance remains. Revisit the cap before public launch: ten homepage loads can consume the daily allowance. When exhausted, the site shows the genuine Google profile link until quota resets. Do not raise these limits or use the key for additional operations without reviewing the approved allowance.
+
+Only the Pages production environment is connected. Branch previews and plain Astro development do not inherit the secret. For a local live review check, use ignored `.dev.vars` and build with `PUBLIC_ENABLE_GOOGLE_REVIEWS=true`; local requests share the same quota. No static reviews or rating are embedded.
+
+Live verification on October 6 confirmed HTTP 200 JSON with no-store headers, four written five-star cards, the aggregate hero rating, loaded author avatars, newest-first dates, direct review links, and working desktop/mobile controls. Staging remains noindex.
 
 The endpoint requests only reviews, provider attribution, aggregate rating and review count. It reads a fixed server-configured business, rejects cross-site browser fetches, bounds upstream time to six seconds, does not follow redirects with credentials, and sends no-store headers. Browser fetching runs once when the hero rating enters view. Cross-site checks are not a substitute for provider quota or host rate limits.
 
