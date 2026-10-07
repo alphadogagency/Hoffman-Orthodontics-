@@ -2,5 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "hoffman-orthodontics",
   "compatibility_date": "2026-10-06",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
+  "vars": {
+    "GOOGLE_PLACE_ID": "ChIJA3iJOgCFf4gRD9BScWOg2mc",
+    "PUBLIC_ENABLE_GOOGLE_REVIEWS": "true",
+    "PUBLIC_ALLOW_INDEXING": "false"
+  }
 }
