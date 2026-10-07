@@ -26,5 +26,5 @@ if (menuButton && navigation) {
     }
   });
 
-  window.matchMedia('(min-width: 821px)').addEventListener('change', closeMenu);
+  window.matchMedia('(min-width: 1051px)').addEventListener('change', closeMenu);
 }

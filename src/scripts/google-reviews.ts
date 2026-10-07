@@ -22,6 +22,9 @@ if (section?.dataset.reviewsEnabled === 'true') {
       if (typeof data.rating === 'number' && data.rating >= 1 && data.rating <= 5 && Number.isSafeInteger(data.reviewCount) && data.reviewCount! > 0) {
         const rating = document.querySelector('[data-hero-rating]');
         if (rating) rating.textContent = `${data.rating.toFixed(1)} / 5 · ${data.reviewCount} Google ${data.reviewCount === 1 ? 'review' : 'reviews'}`;
+        const stars = document.querySelector<HTMLElement>('[data-hero-stars]');
+        const fill = stars?.querySelector<HTMLElement>('[data-star-fill]');
+        if (stars && fill) { fill.style.width = `${data.rating / 5 * 100}%`; stars.hidden = false; }
       }
       if (!Array.isArray(data.reviews)) return;
       for (const review of data.reviews.slice(0, 5)) {
@@ -73,7 +76,10 @@ if (section?.dataset.reviewsEnabled === 'true') {
       new ResizeObserver(update).observe(track); update();
     } catch { /* The real Google profile link remains available. No retries or fabricated reviews. */ }
   }
-  const target = document.querySelector('.hero-rating') || section;
   const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); void loadReviews(); } }, { rootMargin: '150px' });
-  observer.observe(target);
+  // Direct links to #reviews can start with the hero outside the viewport.
+  // Either visible location should load the shared data, once per page view.
+  observer.observe(section);
+  const hero = document.querySelector('.hero-rating');
+  if (hero) observer.observe(hero);
 }

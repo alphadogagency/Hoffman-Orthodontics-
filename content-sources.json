@@ -20,14 +20,14 @@
     "Marketing headlines and summaries are new copy based on supplied practice content.",
     "Doctor credentials, education, office contact details, treatment offerings and FAQ answers are grounded in the supplied export.",
     "Generic template staff, office and before-and-after images were excluded; illustrative photos are not identified as Hoffman staff, premises or patient results.",
-    "Jotform is intentionally deferred at user request. src/components/ConsultationRequest.astro contains the working phone/email fallback and insertion point; preserve contact/#form.",
-    "No analytics, new booking service, or patient data collection has been added.",
-    "Accessibility and privacy wording is carried from the supplied pages, not a new compliance certification. Reconcile the existing privacy wording with the final Jotform configuration before the public launch.",
+    "Bryan supplied Jotform 262794560250055 on October 7. It is embedded at contact/#form using Jotform's iframe handler; the supplied form's fields and delivery settings are managed in Jotform.",
+    "No analytics or new booking service added. Consultation requests are collected by the user-supplied Jotform.",
+    "Accessibility and original privacy wording are carried from the supplied pages, not a new compliance certification. The privacy policy now describes the embedded Jotform.",
     "Cloudflare staging remains noindex; live-domain launch is outside this round.",
     "Live Maps hours and exact coordinates verified October 6. Fax agrees with the old export and live Contact page; Bryan instructed us to retain supplied/published details without an additional practice-confirmation step.",
     "Google reviews API and slider are connected to the practice-specific Google Cloud project and verified on Cloudflare staging; no static reviews or rating are embedded. Google's official Place ID finder confirmed the exact Wheelis Drive location. Usage caps and setup details are documented in README.md.",
-    "New treatment, cost, and local copy implements Kyle's request. Bryan clarified that separate practice sign-off is not an added requirement. Pricing and financing numbers are omitted because not supplied.",
+    "Kyle's October 7 feedback supersedes the pricing request: do not publish pricing numbers; lead with the complimentary consultation, insurance, payment plans, and exact written fee at the first visit. Payment terms may be supplied later; they are not a current blocker.",
     "Valid Dentist/LocalBusiness, Person, and FAQPage structured data added; no fabricated ratings or branches.",
-    "Privacy date updated only for the added Google Maps/reviews disclosure; align the form disclosure with the final Jotform when supplied."
+    "Privacy date updated October 7 for the Jotform disclosure. The existing Google Maps/reviews disclosure remains."
   ]
 }

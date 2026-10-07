@@ -105,6 +105,9 @@
 .consultation-request > p:not(.eyebrow) { color: var(--muted); }
 .consultation-request .eyebrow { margin-bottom: 22px; }
 .request-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 28px; }
+.consultation-form { display: block; width: 100%; max-width: 100%; border: 0; margin-top: 24px; background: white; border-radius: 6px; }
+.form-help { font-size: .875rem; margin-top: 20px; }
+.form-help a { text-decoration: underline; text-underline-offset: 3px; }
 .consultation-request .request-note { border-top: 1px solid #c4d8e5; font-size: .875rem; margin: 30px 0 0; padding-top: 23px; }
 .visit-reminder { background: var(--pale); padding-block: 54px; }
 .visit-reminder > div { display: flex; align-items: center; justify-content: space-between; gap: 60px; }

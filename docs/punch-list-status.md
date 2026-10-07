@@ -2,7 +2,7 @@
 
 ## Scope
 
-Follow Kyle's requested edits and Bryan's instructions. Bryan clarified that separate practice sign-off is not a development or launch gate. Use the supplied and published practice details; retain the published fax without an additional confirmation step. Missing pricing numbers remain missing information, not an approval requirement. Jotform and the domain switch remain deferred by Bryan.
+Follow Kyle's requested edits and Bryan's instructions. Bryan clarified that separate practice sign-off is not a development or launch gate. Use the supplied and published practice details; retain the published fax without an additional confirmation step. Kyle’s October 7 feedback supersedes the pricing request: leave numbers out and explain the exact fee will be provided in writing at the first visit. Bryan supplied Jotform for staging. The domain switch remains deferred.
 
 ## Applied
 
@@ -29,12 +29,14 @@ Follow Kyle's requested edits and Bryan's instructions. Bryan clarified that sep
 - General education: [ABO patient information](https://exam.americanboardortho.com/patients/), [AAO first evaluation](https://aaoinfo.org/whats-trending/when-should-your-child-see-an-orthodontist/), [AAO aligners](https://aaoinfo.org/treatments/aligners/), [AAO adult questions](https://aaoinfo.org/orthodontists-respond-to-frequently-asked-questions-from-adults-considering-treatment/), [AAO emergency guidance](https://aaoinfo.org/whats-trending/what-is-an-orthodontic-emergency/).
 - Local context: [Memphis Travel neighborhoods](https://www.memphistravel.com/neighborhoods), [East Memphis](https://www.memphistravel.com/neighborhoods/east-memphis), [regional landmarks](https://www.memphistravel.com/neighborhood-guide-memphis-barbecue), [Bartlett parks](https://www.cityofbartlett.org/167/City-Parks-Listing). Local references describe geography, not practice partnerships.
 
-## Inputs still needed
+## October 7 feedback
 
-1. **Jotform:** explicitly deferred by Bryan; insert the supplied embed at `#form`. Kyle requested name, phone, email, patient age group, preferred time, and the intended submission destination.
-2. **Pricing:** Bryan will supply the treatment price or range for the existing cost/financing page. Published consultation, insurance, and flexible-payment information is already included.
-
-Kyle's before/after request is conditional on supplied patient cases. It is not an outstanding required input. Launch configuration is documented in README and is omitted from Bryan's input list.
+- Cost & financing is now in the desktop and mobile main navigation. The menu switches to its collapsed layout earlier to accommodate the added link.
+- Cost-page introduction leads with the free consultation, most insurance accepted, flexible payment plans, and an exact written fee at the first visit. The cost FAQ matches. Pricing numbers are intentionally omitted; none are awaited.
+- Supplied Jotform `262794560250055` is embedded on Contact at `#form`, with automatic height adjustment and a direct-form fallback. The privacy disclosure reflects this addition. Form submission/notification delivery remains untested; no test message has been sent.
+- Hero rating now includes visual stars filled according to the live aggregate rating. Fixed a loading bug: direct visits to `/#reviews` now load when the review section is visible, even when the hero is outside the viewport.
+- OSM’s reference uses Trustindex. Bryan declined Trustindex; retain the custom Google slider and explain the existing ten-request daily cap. No quota/billing increase made. The cap can still cause the fallback-only state after usage is exhausted.
+- Kyle says service-area pages are fine for launch; no further expansion in this round. He may send payment terms later, but prices are no longer an outstanding input. Before/after cases remain conditional on supplied material.
 
 ## Completed reviews setup — operating notes
 
@@ -44,7 +46,7 @@ The 10/day and 5/minute Google request caps are implementation settings for Brya
 
 ## Verification
 
-The recorded checks cover builds, functionality, desktop/mobile layout, and the measured homepage PageSpeed pass completed October 7. Pricing is the only required information outstanding from Kyle; Jotform and launch indexing remain Bryan's deferred final steps.
+The recorded checks cover builds, functionality, desktop/mobile layout, and the measured homepage PageSpeed pass completed October 7. Kyle subsequently removed the pricing requirement and Bryan supplied Jotform on October 7. Launch indexing remains deferred until the domain switch.
 
 - [Google PageSpeed Insights, October 7, 2026 at 12:06 a.m. EDT](https://pagespeed.web.dev/analysis/https-hoffman-orthodontics-pages-dev/387l22h6f2?form_factor=mobile): live staging homepage scored **97/100 mobile** and **100/100 desktop** for performance. Mobile: FCP 1.8 s, LCP 2.3 s, TBT 0 ms, CLS 0.008. Desktop: FCP/LCP 0.4 s, TBT 0 ms, CLS 0.002. Lighthouse 13.5.0 lab tests; real-user field data is not yet available. This measures the current homepage before the deferred Jotform embed. The report also records Accessibility 96, Best Practices 100, and SEO 66; the SEO failure is the intentional staging noindex. No performance changes were needed for this pass.
 

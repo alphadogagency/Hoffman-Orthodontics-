@@ -26,7 +26,7 @@ Edit `src/` and `public/`, not generated `dist/`.
 - `src/data/treatments.ts`: eight individual treatment guides
 - `src/data/areas.ts`: seven community pages, all directing to the single East Memphis office
 - `src/data/faqs.ts`: visible FAQ content and the source for FAQPage schema
-- `src/components/ConsultationRequest.astro`: deferred Jotform insertion point
+- `src/components/ConsultationRequest.astro`: supplied Jotform embed at `/contact/#form`
 - `functions/api/google-reviews.ts` and `worker/google-reviews.ts`: Pages adapter and private review handler
 - `public/_redirects`: 301 rules for known legacy URLs
 - `docs/punch-list-status.md`: source evidence, completed work, and remaining inputs
@@ -72,6 +72,6 @@ Keep `PUBLIC_ALLOW_INDEXING=false` on staging. Page-level `noindex, nofollow` re
 
 At the custom-domain launch deferred by Bryan, set `PUBLIC_ALLOW_INDEXING=true` and rebuild. This adds production canonicals and a sitemap of the 26 content URLs. Validate the custom domain, both host variants, redirects, and indexing headers. Keep Pages preview hosts excluded from indexing or redirect them appropriately after launch.
 
-Add the supplied Jotform embed to `src/components/ConsultationRequest.astro`, preserving `/contact/#form`. Until then the section has working phone/email links and does not submit patient data. Verify the submission recipient, confirmation behavior, mobile layout, and privacy wording when the embed arrives.
+Jotform `262794560250055`, supplied by Bryan October 7, is embedded in `src/components/ConsultationRequest.astro` at `/contact/#form`. Jotform's handler resizes the iframe; the embed omits the original unconditional scroll-to-top so consultation anchors remain usable. Phone and direct-form fallbacks remain. Form fields, delivery, and notifications are managed in the supplied Jotform; rendering and required-field validation are checked without submitting a message.
 
-The original privacy policy is retained with a limited addition covering the new map/review features. Match the form disclosure to the supplied Jotform when embedded. Per Bryan's scope clarification, separate practice sign-off on the existing policy or new copy is not an added launch requirement.
+The original privacy policy is retained with limited additions covering the map, reviews, and supplied Jotform. Per Bryan's scope clarification, separate practice sign-off on the existing policy or new copy is not an added launch requirement.
