@@ -24,7 +24,7 @@ export const areas = [
     planning: 'Use current directions to account for traffic and your appointment time. Our office is open Monday through Thursday, 8 a.m. to 5 p.m. Central. Call for availability and the length of the visit before planning a return to work.',
     focusTitle: 'Treatment with your working day in mind',
     focus: 'If you are considering adult treatment, ask about how braces or removable aligners fit into meals, meetings, and cleaning routines. We will also explain the follow-up schedule, so you understand the ongoing commitment before starting.',
-    links: ['adult-orthodontics','invisalign'], origin: 'Downtown Memphis, Memphis, TN',
+    links: ['adult-orthodontics','angel-aligners'], origin: 'Downtown Memphis, Memphis, TN',
   },
   { slug: 'midtown-memphis', name: 'Midtown Memphis', heading: 'Orthodontic care for Midtown Memphis',
     intro: 'From a first evaluation to an adult smile plan, Dr. Rachel Hoffman welcomes Midtown patients at our East Memphis practice.',

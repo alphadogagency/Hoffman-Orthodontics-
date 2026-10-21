@@ -6,10 +6,10 @@
 /faq /faq/ 301
 /accessibility /accessibility/ 301
 /privacy-policy /privacy-policy/ 301
-# The old export included a standalone Invisalign URL.
-/invisalign /treatments/invisalign/ 301
-/invisalign/ /treatments/invisalign/ 301
-/invisalign/index.html /treatments/invisalign/ 301
+# Retired Invisalign pages lead to the clear-aligner treatment offered by the practice.
+/invisalign /treatments/angel-aligners/ 301
+/invisalign/ /treatments/angel-aligners/ 301
+/invisalign/index.html /treatments/angel-aligners/ 301
 /index.html / 301
 /about/index.html /about/ 301
 /new-patients/index.html /new-patients/ 301
@@ -18,3 +18,7 @@
 /faq/index.html /faq/ 301
 /accessibility/index.html /accessibility/ 301
 /privacy-policy/index.html /privacy-policy/ 301
+
+/treatments/invisalign /treatments/angel-aligners/ 301
+/treatments/invisalign/ /treatments/angel-aligners/ 301
+/treatments/invisalign/index.html /treatments/angel-aligners/ 301
