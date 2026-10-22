@@ -18,7 +18,9 @@
 .related-links a:hover { border-color: var(--navy); }
 .treatment-directory-section { padding-block: 42px; background: var(--pale); }
 .directory-title { font-family: var(--sans); font-size: 1rem !important; font-weight: 600; }
-.treatment-directory { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 64px; }
+.treatment-directory { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 64px; }
+.treatment-directory-group { min-width: 0; }
+.treatment-directory-group h3 { font-family: var(--sans); font-size: .875rem; font-weight: 600; letter-spacing: normal; color: var(--blue-dark); margin: 8px 0 4px; }
 .treatment-directory a { display: flex; justify-content: space-between; gap: 16px; padding-block: 16px; border-bottom: 1px solid var(--line); }
 .treatment-directory a:hover { color: var(--blue-dark); }
 .area-directory > a { display: grid; grid-template-columns: 40px 1fr 24px; gap: 28px; padding-block: 30px; border-top: 1px solid var(--line); align-items: baseline; }

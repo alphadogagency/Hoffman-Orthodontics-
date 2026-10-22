@@ -15,7 +15,7 @@ export const areas = [
     planning: 'Open directions from Germantown, then adjust the starting address and departure time. If you are combining a visit with a trip into Memphis, ask our team about the time needed for your specific appointment before arranging the rest of your day.',
     focusTitle: 'Compare Choices for the Whole Family',
     focus: 'Parents often have different questions for themselves and their children. We offer early evaluations, teen care, and adult treatment. Dr. Rachel can explain how the recommendation changes with the stage of development and the needs of each smile.',
-    links: ['teen-orthodontics','ceramic-braces'], origin: 'Germantown, TN',
+    links: ['teen-orthodontics','esthetic-braces'], origin: 'Germantown, TN',
   },
   { slug: 'downtown-memphis', name: 'Downtown Memphis', heading: 'Orthodontic Care for Downtown Memphis',
     intro: 'A personal approach to braces and aligners with Dr. Rachel Hoffman, a trip east from Downtown Memphis.',

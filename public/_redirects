@@ -22,3 +22,8 @@
 /treatments/invisalign /treatments/angel-aligners/ 301
 /treatments/invisalign/ /treatments/angel-aligners/ 301
 /treatments/invisalign/index.html /treatments/angel-aligners/ 301
+
+# The esthetic guide now covers ceramic and Iconix rose-gold braces together.
+/treatments/ceramic-braces /treatments/esthetic-braces/ 301
+/treatments/ceramic-braces/ /treatments/esthetic-braces/ 301
+/treatments/ceramic-braces/index.html /treatments/esthetic-braces/ 301
