@@ -3,8 +3,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const links = [
   { href: '/about/', label: 'Meet Dr. Rachel' },
   { href: '/treatments/', label: 'Treatments' },
-  { href: '/new-patients/', label: 'New patients' },
-  { href: '/cost-and-financing/', label: 'Cost & financing' },
+  { href: '/new-patients/', label: 'New Patients' },
+  { href: '/cost-and-financing/', label: 'Cost & Financing' },
   { href: '/faq/', label: 'FAQs' },
 ];
 ---
@@ -15,7 +15,7 @@ const links = [
       <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
       <nav id="primary-nav" aria-label="Main navigation">
         {links.map(link => <a href={link.href} aria-current={currentPath === link.href.replace(/\/$/, '') ? 'page' : undefined}>{link.label}</a>)}
-        <a class="button button-small" href="/contact/" aria-current={currentPath === '/contact' ? 'page' : undefined}>Contact us</a>
+        <a class="button button-small" href="/contact/" aria-current={currentPath === '/contact' ? 'page' : undefined}>Contact Us</a>
       </nav>
     </div>
   </header>

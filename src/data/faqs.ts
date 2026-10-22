@@ -1,6 +1,6 @@
 export const faqGroups = [
   {
-    id: 'getting-started', title: 'Getting started',
+    id: 'getting-started', title: 'Getting Started',
     items: [
       { question: 'What does board-certified orthodontist mean?', answer: 'Board certification is a voluntary professional credential beyond orthodontic specialty training. The American Board of Orthodontics assesses knowledge and clinical judgment through examinations and ongoing certification requirements.\n\nDr. Rachel Hoffman is board-certified in orthodontics and dentofacial orthopedics. At your visit, she will explain the findings and recommendations so you understand the reasons behind your treatment plan.' },
       { question: 'At what age should a child first see an orthodontist?', answer: 'The American Association of Orthodontists recommends a first orthodontic evaluation by age 7. A child usually has a mix of baby and permanent teeth at that stage, allowing an orthodontist to assess the developing bite.\n\nAn evaluation does not automatically mean starting braces. Dr. Rachel may recommend monitoring growth or, when appropriate, addressing a specific concern early. Contact us sooner if you or your dentist notice a problem.' },
@@ -13,7 +13,7 @@ export const faqGroups = [
     ],
   },
   {
-    id: 'cost-and-planning', title: 'Cost & planning',
+    id: 'cost-and-planning', title: 'Cost & Planning',
     items: [
       { question: 'How much do braces or clear aligners cost?', answer: 'Your first consultation is complimentary. After your exam, Dr. Rachel will explain the recommended treatment, and you’ll receive your exact treatment fee in writing at that visit.\n\nWe accept most insurance providers and offer flexible payment plans. Our team will walk you through what is included, your insurance benefits, and the payment options for your treatment before you decide to begin.' },
       { question: 'Are payment plans available?', answer: 'Yes. Our practice offers flexible payment plans. Ask our team about the initial payment, monthly amount, payment period, and any applicable fees or interest for your plan.\n\nConfirm the full payment schedule before starting treatment so you know what to expect.' },
@@ -22,7 +22,7 @@ export const faqGroups = [
     ],
   },
   {
-    id: 'during-treatment', title: 'During treatment',
+    id: 'during-treatment', title: 'During Treatment',
     items: [
       { question: 'What should I do about a broken bracket, poking wire, or lost aligner?', answer: 'Call our office at 901.625.0202 and describe what happened. A loose bracket, bothersome wire, or lost or damaged appliance may need attention before your next scheduled appointment. Follow any instructions provided by our team or on the office voicemail.\n\nDo not force a painful or distorted aligner or retainer into place. For trouble breathing or swallowing, uncontrolled bleeding, or major facial injury, seek emergency care immediately. A knocked-out permanent tooth or severe swelling also needs urgent dental or medical attention; do not wait for a routine orthodontic visit.' },
       { question: 'Do I still need to see my general dentist?', answer: 'Yes. Regular dental cleanings and checkups remain important during orthodontic treatment. We work with your general dentist to help keep your teeth and gums healthy. Continue your regular dental visits and follow the schedule your dentist recommends.' },
@@ -34,7 +34,7 @@ export const faqGroups = [
     ],
   },
   {
-    id: 'after-treatment', title: 'After treatment',
+    id: 'after-treatment', title: 'After Treatment',
     items: [
       { question: 'How long will I need to wear my retainers?', answer: 'Long-term retainer wear helps maintain your results. Dr. Rachel generally recommends retainers for life, with an initial period of full-time wear followed by nighttime wear. Your exact schedule will be personalized, so follow the instructions provided for your care.' },
     ],

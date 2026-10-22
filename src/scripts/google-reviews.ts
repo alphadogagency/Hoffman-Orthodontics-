@@ -41,7 +41,7 @@ if (section?.dataset.reviewsEnabled === 'true') {
         // Full text is available on demand; never rewrite a patient's words.
         if (review.text.length > 320) {
           article.classList.add('review-collapsed'); expand.hidden = false;
-          expand.addEventListener('click', () => { const collapsed = article.classList.toggle('review-collapsed'); expand.setAttribute('aria-expanded', String(!collapsed)); expand.textContent = collapsed ? 'Read more' : 'Read less'; });
+          expand.addEventListener('click', () => { const collapsed = article.classList.toggle('review-collapsed'); expand.setAttribute('aria-expanded', String(!collapsed)); expand.textContent = collapsed ? 'Read More' : 'Read Less'; });
         }
         const author = fragment.querySelector('[data-review-author]')!;
         const authorUrl = safeUrl(review.authorUrl);
